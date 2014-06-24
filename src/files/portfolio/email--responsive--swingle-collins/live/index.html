@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!--
+        ** Generic Responsive Email Template A :: Distribion
+        ** Author: Distribion
+        ** Date: 2013-08
+        -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <title></title>
+        <style type="text/css">
+        /* Client-specific Styles */
+        #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+        body{width:100% !important;} .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 150%;} /* Force Hotmail to display normal line spacing. More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+        body{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%} /* Prevent Webkit and Windows Mobile platforms from changing default text sizes. */
+
+        /* Reset Styles */
+        body{margin:0; padding:0;}
+        img{border:none; line-height:100%; outline:none; text-decoration:none;}
+        table {border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;}
+        table td{border-collapse:collapse;} /* Bring inline? No */;
+        #backgroundTable{height:100% !important; margin:0; padding:0; width:100% !important;}
+
+        /* Template Styles */
+        body, #backgroundTable {
+            background-color: #FFFFFF;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif;
+            color: #022f50 !important;
+            font-weight: bold;
+            line-height: 130%;
+            display: block;
+            margin-bottom: 10px;
+            margin-right: 0;
+            margin-left: 0;
+            margin-top: 0;
+            padding-bottom: 0;
+            padding-right: 0;
+            padding-left: 0;
+            padding-top: 0;
+        }
+
+        h1 {font-size: 36px;}
+        h2 {font-size: 30px;}
+        h3 {font-size: 24px;}
+        h4 { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 a, h2 a, h3 a, h4 a {color: #022f50 !important;}
+
+        a,
+        a[href^=tel],
+        a[href^=sms] {
+            text-decoration: none !important;
+            color: #bd9c86 !important;
+            font-weight: bold;
+        }
+
+        /* Preheader Styles */
+        #templatePreheader {}
+
+        .preheaderContents {
+             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+             line-height: 130% !important;
+             text-align: left;
+             font-size: 10px;
+             color: #b2b2b2;
+        }
+
+        .preheaderContents a {
+            text-decoration: none !important; 
+            color: #bd9c86 !important;
+            font-weight: bold;
+            line-height: 150%;
+        }
+
+        #webLink {
+            color: #555555;
+        }
+
+        /* Foreground Table */
+        #foregroundTable {
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCCC;
+        }
+
+        /* Header Styles */
+        #templateHeader {
+            border-top: 10px solid #022f50;
+        }
+
+        .headerContents {
+            font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif;
+            line-height: 100%;
+            font-size: 12px;
+            color: #222222;
+        }
+
+        .headerContents a {
+            text-decoration: none !important;
+            color: #222222 !important;
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        #title {
+            text-align: right;
+        }
+
+        /* Body Styles */
+        #templateBodyOneTwo {
+            border-top: 20px solid #022f50;
+        }
+
+        #templateBodyOne {
+            border-right: 1px solid #CCCCCC;
+        }
+
+        #templateBodyTwo {}
+
+        #templateBodyThree {
+            border-top: 20px solid #022f50;
+        }
+
+        #templateBodyFour {
+            border-top: 20px solid #022f50;
+        }
+
+        .bodySuperHeader {
+            font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif;
+            letter-spacing: 1px;
+            font-weight: bold;
+            line-height: 100%;
+            text-align: left;
+            font-size: 10px;
+            color: #bd9c86;
+        }
+
+        .bodyHeader {
+            font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif;
+            font-weight: bold;
+            line-height: 120%;
+            text-align: left;
+            font-size: 21px;
+            color: #022f50;
+        }
+
+        .bodyHeaderBorder {
+            border-bottom: 1px dotted #bd9c86;
+        }
+
+        .bodyContents {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 150%;
+            text-align: left;
+            font-size: 13px;
+            color: #555555;
+        }
+
+        /* Prefooter Styles */
+        #templatePrefooter {}
+
+        .prefooterContents {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: center;
+            line-height: 100%;
+            font-size: 11px;
+            color: #bd9c86;
+        }
+
+        .prefooterContents a {
+            text-decoration: none !important;
+            color: #bd9c86 !important;
+            font-weight: bold;
+        }
+
+        #prefooterURL {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #022f50;
+            text-align: center;
+            line-height: 100%;
+            font-size: 11px;
+            color: #FFFFFF;
+        }
+
+        #prefooterURL a {
+            text-decoration: none !important;
+            color: #FFFFFF !important;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        /* Footer Styles */
+        #templateFooter {}
+
+        .footerContents {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 130% !important;
+            text-align: left;
+            font-size: 12px;
+            color: #808080;
+        }
+
+        .footerContents a {
+            text-decoration: none !important; 
+            color: #bd9c86 !important;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        /* Responsive Styles */
+        @media only screen and (max-width: 600px) {
+
+            h1 {font-size: 26px !important;}
+            h2 {font-size: 21px !important;}
+            h3 {font-size: 18px !important;}
+            h4 {font-size: 14px !important;}
+
+            td[id=snippet] {
+                padding-bottom: 0.75em;
+            }
+
+            td[id=webLink] {
+                text-align: center !important;
+            }
+
+            table[id=foregroundTable] { 
+                width: 302px !important;
+                margin: 0 9px 0 9px;
+            }
+
+            td[id=titleContents] {
+                text-align: center !important;
+            }
+
+            td[id=logoContents] {
+                text-align: center !important;
+                height: 60px !important;
+            }
+
+            div[class=titleText] {
+                font-size: 32px !important;
+            }
+
+            div[class=dateText] {
+                line-height: 150% !important;
+            }
+
+            table[id=templateBodyOne] {
+                border-right: none !important;
+                border-bottom: 20px solid #022f50;
+                margin-bottom: 20px;
+            }
+
+            td[class=bodyContents] {
+                font-size: 14px !important;
+            }
+
+            td[class=prefooterContents] {
+                height: 50px !important;
+            }
+
+            td[id=prefooterLogo] {
+                height: 50px !important;
+            }
+
+            table[class=spanOne] {
+                width: 320px !important;
+            }
+
+            table[class=spanTwo] {
+                width: 300px !important;
+            }
+
+            table[class=spanThree] { 
+                width: 270px !important;
+            }
+
+            table[class=spanFour] {
+                width: 270px !important;
+            }
+
+            table[class=spanFive] {
+                width: 270px !important;
+            }
+
+            table[class=mobileFull] {
+                width: 100% !important;
+            }
+
+            .mobileHide {
+                display: none !important;
+            }
+
+            table[class=mobileHide] {
+                display: none !important;
+            }
+
+            td[class=mobileHide] {
+                display: none !important;
+            }
+
+        }
+
+        </style>
+    </head>
+    <body bgcolor="#FFFFFF" style="background-color: #FFFFFF; width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin-top: 0; margin-right: 0; margin-left: 0; margin-bottom: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+        
+        <!-- #backgroundTable -->
+        <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="background-color: #FFFFFF; width:100% !important; height:100% !important; margin:0; padding:0; line-height: 100% !important; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+            <tr>
+                <td align="center" valign="top" bgcolor="#FFFFFF" style="padding-right: 9px; padding-left: 9px;">
+
+                    <!-- Preheader -->
+                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="540" id="templatePreheader" class="spanThree" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                        <tr>
+                            <td width="100%" height="10"><!--spacer--></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table align="left" cellpadding="0" cellspacing="0" border="0" width="360" class="mobileFull" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td width="100%" valign="middle" id="snippet" class="preheaderContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 130% !important; text-align: left; font-size: 9px; color: #b2b2b2;">In This Issue: How to Insure Your Family's Jewels, Rising Cost of Building Codes, and more...</td>
+                                    </tr>
+                                </table>
+                                <table align="right" cellpadding="0" cellspacing="0" border="0" width="170" class="mobileFull" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td width="100%" valign="middle" class="preheaderContents" id="webLink" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 130% !important; text-align: right; font-size: 9px; color: #555555;">
+                                            Email not displaying correctly?<br class="mobileHide" /> 
+                                            <a href="[weblinkURL]" target="_blank" title="View in Web Browser" style="text-decoration: none !important; color: #bd9c86 !important; font-weight: bold; line-height: 150%;">View in Web Browser</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="5"><!--spacer--></td>
+                        </tr>
+                    </table>
+
+                    <!-- #foregroundTable -->
+                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="582" id="foregroundTable" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF; border: 1px solid #CCCCCC;">
+                        <tr>
+                            <td width="100%" valign="top">
+
+                                <!-- Header-->
+                                <table cellpadding="0" cellspacing="0" border="0" width="580" id="templateHeader" class="spanTwo" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 10px solid #022f50;">
+                                    <tr>
+                                        <td width="100%" valign="middle">
+                                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="540" class="spanThree" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="100%" valign="top">
+                                                        <table align="left" cellpadding="0" cellspacing="0" border="0" width="260" id="logo" class="mobileFull" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td height="92" align="left" valign="top" id="logoContents" class="headerContents" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; line-height: 100%; font-size: 12px; color: #222222;">
+                                                                    <a href="http://www.swinglecollins.com/" target="_blank"><img src="images/email_template_logo_retina_w_swoosh.png" alt="[p:company]" width="250" height="75" border="0" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <table align="right" cellpadding="0" cellspacing="0" border="0" width="260" id="title" class="mobileFull" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td height="92" valign="middle" id="titleContents" class="headerContents" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; line-height: 100%; font-size: 12px; color: #222222; text-align: right;">
+                                                                    <div class="titleText" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; font-size: 24px; font-weight: bold; line-height: 100%; color: #bd9c86;">The Risk Advisor</div>
+                                                                    <div class="dateText" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; font-size: 14px; font-weight: bold; line-height: 100%; color: #022f50;">February 11, 2014</div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- Body One & Two-->
+                                <table align="center" cellpadding="0" cellspacing="0" border="0" width="540" id="templateBodyOneTwo" class="spanFour" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 20px solid #022f50;">
+                                    <tr>
+                                        <td height="20"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top">
+                                            <table align="left" cellpadding="0" cellspacing="0" border="0" width="270" id="templateBodyOne" class="spanFour" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-right: 1px solid #CCCCCC;">
+                                                <tr>
+                                                    <td width="250" height="15" valign="top" class="bodySuperHeader" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; letter-spacing: 1px; font-weight: bold; line-height: 100%; text-align: left; font-size: 10px; color: #bd9c86;">PERSONAL RISK</td>
+                                                    <td width="20" rowspan="8" class="mobileHide" style="display: table-cell;"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyHeader" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; font-weight: bold; text-align: left; line-height: 120%; font-size: 21px; color: #022f50;">How to Insure Your Family's Jewels</td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="7" class="bodyHeaderBorder" style="border-bottom: 1px dotted #bd9c86;"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="15"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 150%; text-align: left; font-size: 13px; color: #555555;">Don't rely on your homeowners policy alone to fully protect your jewelry. Although homeowners policies provide some coverage for jewelry, there are many limitations that could leave you empty handed after a loss, and here's how...</td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="15"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <table align="left" cellpadding="0" cellspacing="0" border="0" width="250" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td width="110" align="left" valign="top"><a href="http://www.swinglecollins.com/pearls-wisdom-protecting-jewelry/" target="_blank"><img src="images/email_template_btn_retina_primary_cta.png" alt="Read More" width="105" height="30" border="0" style="background-color: #bd9c86; font-weight: bold; display: block; color: #FFFFFF;" /></a></td>
+                                                                <td align="left" valign="top"><a href="http://www.swinglecollins.com/personal-insurance-agent-dallas/" target="_blank"><img src="images/email_template_btn_retina_secondary_cta.png" alt="See All Articles &raquo;" width="110" height="30" border="0" style="background-color: #FFFFFF; font-weight: bold; display: block; color: #bd9c86;" /></a></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="20"><!--spacer--></td>
+                                                </tr>
+                                            </table>
+                                            <table align="right" cellpadding="0" cellspacing="0" border="0" width="250" id="templateBodyTwo" class="spanFour" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="250" height="15" valign="top" class="bodySuperHeader" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; letter-spacing: 1px; font-weight: bold; line-height: 100%; text-align: left; font-size: 10px; color: #bd9c86;">COMMERCIAL RISK</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyHeader" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; font-weight: bold; text-align: left; line-height: 120%; font-size: 21px; color: #022f50;">Rising Cost of Building Codes</td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="7" class="bodyHeaderBorder" style="border-bottom: 1px dotted #bd9c86;"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="15"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 150%; text-align: left; font-size: 13px; color: #555555;">Whose job is it to determine the proper amount of insurance needed to cover current building codes? Ultimately it is your responsibility to establish the value of your property and select the amount of insurance for your policy. We can help with that decision and explain what you can do to avoid an unpleasant surprise after a loss...</td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="15"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <table align="left" cellpadding="0" cellspacing="0" border="0" width="250" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td width="110" align="left" valign="top"><a href="http://www.swinglecollins.com/keeping-building-codes/" target="_blank"><img src="images/email_template_btn_retina_primary_cta.png" alt="Read More" width="105" height="30" border="0" style="background-color: #bd9c86; font-weight: bold; display: block; color: #FFFFFF;" /></a></td>
+                                                                <td align="left" valign="top"><a href="http://www.swinglecollins.com/commercial-insurance-agent-and-broker-dallas/" target="_blank"><img src="images/email_template_btn_retina_secondary_cta.png" alt="See All Articles &raquo;" width="110" height="30" border="0" style="background-color: #FFFFFF; font-weight: bold; display: block; color: #bd9c86;" /></a></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="20"><!--spacer--></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- Body Three-->
+                                <table align="center" cellpadding="0" cellspacing="0" border="0" width="540" id="templateBodyThree" class="spanFour" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 20px solid #022f50;">
+                                    <tr>
+                                        <td height="20"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bodyHeader" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; font-weight: bold; text-align: left; line-height: 120%; font-size: 21px; color: #022f50;">Awards</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="7" class="bodyHeaderBorder" style="border-bottom: 1px dotted #bd9c86;"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="15"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bodyContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 150%; text-align: left; font-size: 13px; color: #555555;">Swingle Collins &amp; Associates has been selected for the 18th year to be part of an elite group of independent insurance agencies around the United States participating in the Independent Insurance Agents &amp; Brokers of America (IIABA or the Big &ldquo;I&rdquo;) &ldquo;Best Practices&rdquo; Study Group...</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="15"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top"><a href="http://www.swinglecollins.com/swingle-collins-associates-included-in-iiabas-best-practices-study/" target="_blank"><img src="images/email_template_btn_retina_primary_cta.png" alt="Read More" width="105" height="30" border="0" style="background-color: #bd9c86; font-weight: bold; display: block; color: #FFFFFF;" /></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="20"><!--spacer--></td>
+                                    </tr>
+                                </table>
+
+                                <!-- Body Four-->
+                                <table align="center" cellpadding="0" cellspacing="0" border="0" width="540" id="templateBodyFour" class="spanFour" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 20px solid #022f50;">
+                                    <tr>
+                                        <td height="20"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bodyHeader" style="font-family: 'Adobe Garamond Pro', Garamond, Palatino, Georgia, serif; font-weight: bold; text-align: left; line-height: 120%; font-size: 21px; color: #022f50;">Did You Know Swingle Collins Insures...</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="7" class="bodyHeaderBorder" style="border-bottom: 1px dotted #bd9c86;"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="15"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bodyContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 150%; text-align: left; font-size: 13px; color: #555555;"><h4 style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #022f50 !important; font-weight: bold; line-height: 130%; font-size: 16px; display: block; margin-bottom: 10px; margin-right: 0; margin-left: 0; margin-top: 0; padding-bottom: 0; padding-right: 0; padding-left: 0; padding-top: 0;">Oil &amp; Gas Exposures</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bodyContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 150%; text-align: left; font-size: 13px; color: #555555;">The fast moving, constantly changing Oil and Gas industry, and the political and litigious society we live in, can complicate the answer to: who is who and what is what? It is imperative to ensure that the party responsible for a particular exposure in the oilfield is also the party responsible for insuring it...</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="15"><!--spacer--></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top"><a href="http://www.swinglecollins.com/oil-gas-critical-insurance-protection/" target="_blank"><img src="images/email_template_btn_retina_primary_cta.png" alt="Read More" width="105" height="30" border="0" style="background-color: #bd9c86; font-weight: bold; display: block; color: #FFFFFF;" /></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="20"><!--spacer--></td>
+                                    </tr>
+                                </table>
+
+                                <!-- Prefooter-->
+                                <table cellpadding="0" cellspacing="0" border="0" width="580" id="templatePrefooter" class="spanTwo" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td width="100%" valign="middle">
+                                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="540" class="spanThree" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #CCCCCC;">
+                                                <tr>
+                                                    <td width="100%" valign="middle">
+                                                        <table align="left" cellpadding="0" cellspacing="0" border="0" width="225" class="mobileFull" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td width="100%" height="100" valign="middle" class="prefooterContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center; line-height: 100%; font-size: 11px; color: #bd9c86;">
+                                                                    <a href="http://www.swinglecollins.com/personal-insurance-agent-dallas/" target="_blank" style="text-decoration: none !important; color: #bd9c86 !important; font-weight: bold;">See All Personal Risk Articles &raquo;</a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <table align="left" cellpadding="0" cellspacing="0" border="0" width="90" class="mobileFull" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td width="100%" height="100" align="center" valign="middle" id="prefooterLogo">
+                                                                    <a href="http://www.swinglecollins.com/" target="_blank"><img src="images/email_template_logo_circle_retina.png" width="72" height="72" alt="[p:company]" border="0" style="display: block;" align="center" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <table align="right" cellpadding="0" cellspacing="0" border="0" width="219" class="mobileFull" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td width="100%" height="100" valign="middle" class="prefooterContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center; line-height: 100%; font-size: 11px; color: #bd9c86;">
+                                                                    <a href="http://www.swinglecollins.com/commercial-insurance-agent-and-broker-dallas/" target="_blank" style="text-decoration: none !important; color: #bd9c86 !important; font-weight: bold;">See All Commercial Risk Articles &raquo;</a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="40" align="center" valign="middle" id="prefooterURL" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #022f50; text-align: center; line-height: 100%; font-size: 11px; color: #FFFFFF;">
+                                            <a href="http://www.swinglecollins.com/" target="_blank" style="text-decoration: none !important; color: #FFFFFF !important; font-weight: bold; font-size: 11px;">www.swinglecollins.com</a>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <!--/ #foregroundTable -->
+
+                    <!-- Footer -->
+                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="540" id="templateFooter" class="spanThree" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                        <tr>
+                            <td width="100%" height="10"><!--spacer--></td>
+                        </tr>
+                        <tr>
+                            <td height="30" valign="middle" class="footerContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 130% !important; text-align: left; font-size: 12px; color: #808080;">
+                                <p>Copyright &copy; 2014 Swingle Collins &amp; Associates</p>
+
+                                <p>This email was sent via Distribion's Distributed Marketing Platform. <a href="http://mailcenter2.distribion.com/dmc/antispam.php" target="_blank" style="text-decoration: none !important; color: #bd9c86 !important; font-weight: bold; font-size: 12px;">View our Anti-Spam Policy.</a></p>
+
+                                <p><a href="[unsubscribelinkURL]" target="_blank" style="text-decoration: none !important; color: #bd9c86 !important; font-weight: bold; font-size: 12px;">Manage your subscription preferences</a>.</p>
+
+                                <p><strong>Is this email going to your junk/bulk folder?</strong><br /> Add <a href="mailto:[email:sender_email]" style="text-decoration: none !important; color: #bd9c86 !important; font-weight: bold; font-size: 12px;">[email:sender_email]</a> to your address book to ensure that you receive all future emails in your inbox.</p>
+
+                                <p><strong>To unsubscribe by postal mail, please contact:</strong><br />
+                                    Swingle Collins &amp; Associates<br />
+                                    13760 Noel Rd | Suite 600 | Dallas, TX 75240 | Phone: (972) 387-6718</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25"><!--spacer--></td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+        <!--/ #backgroundTable -->
+
+    </body>
+</html>

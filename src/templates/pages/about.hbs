@@ -1,0 +1,22 @@
+---
+published: false
+
+section: about
+title: About
+layout: about.hbs
+---
+{{#each pages}}
+  {{#is data.section "about"}}
+    <article class="teaser">
+      <header class="tile about">
+        <div class="front">
+          <h3>{{data.title}}</h3>
+          <p>{{data.description}}</p>
+        </div>
+        <div class="back">
+          <a class="/link/to/live/url" href="{{relative ../../page.dest this.dest}}">Link</a>
+        </div>
+      </header>
+    </article>
+  {{/is}}
+{{/each}}

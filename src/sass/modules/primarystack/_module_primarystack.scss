@@ -1,0 +1,352 @@
+// Primary Stack
+
+@import 'mixins';
+@import 'extends';
+@import 'functions';
+
+.primaryStack {
+  background-color: hsl($hue, $sat, 15%);
+  bottom: 0;
+  color: hsl($hue, $sat, 40%);
+  float: left;
+  height: auto;
+  left: -250px;
+  overflow: hidden;
+  padding: 0 35px;
+  position: fixed;
+  top: 0;
+  transition: transform 1s ease-out;
+  width: 250px;
+
+  a {
+    &,
+    &:visited {
+      color: hsl($hue, $sat, 40%);
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: hsl($hue, $sat, 70%);
+    }
+  }
+
+  h2,
+  h2 a {
+    color: hsl($hue, $sat, 60%);
+    font-size: 9px;
+    font-weight: $normal;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+  }
+
+  header {
+    background-color: hsl($hue, $sat, 20%);
+    border: 5px solid hsl($hue, $sat, 30%);
+    border-radius: 50%;
+    display: block;
+    float: left;
+    height: 180px;
+    margin: 1em 0 0.5em;
+    overflow: hidden;
+    padding: 30px 0;
+    position: relative;
+    text-align: center;
+    width: 180px;
+
+    &:hover {
+      border: 5px solid hsl($hue, $sat, 40%);
+    }
+
+    a {
+      display: block;
+      float: left;
+      width: 100%;
+    }
+
+    h1 {
+      color: hsl($hue, $sat, 50%);
+      display: block;
+      float: left;
+      font-size: 28px;
+      font-weight: $normal;
+      line-height: 1;
+      margin-bottom: 0.3em;
+      text-align: center;
+      text-transform: uppercase;
+      transition: .3s;
+      white-space: nowrap;
+      width: 100%;
+
+      small {
+        clear: both;
+        color: hsl($hue, $sat, 50%);
+        display: block;
+        float: left;
+        font-family: $header-special-font-stack;
+        font-size: 19px;
+        font-weight: $normal;
+        padding: 0 0 0.2em;
+        text-align: center;
+        text-transform: none;
+        transition: color .3s;
+        width: 100%;
+      }
+
+      div {
+        float: left;
+        text-align: center;
+        width: 100%;
+      }
+
+      span {
+        color: hsl($hue, $sat, 70%);
+        transition: color 0.3s;
+      }
+    }
+
+    > a > small {
+      border-top: 1px solid hsl($hue, $sat, 30%);
+      color: hsl($hue, $sat, 40%);
+      display: block;
+      float: left;
+      font-family: $base-font-stack;
+      font-size: 10px;
+      font-weight: $normal;
+      letter-spacing: 0.2em;
+      line-height: 1;
+      padding: 0.6em 0;
+      transition: 0.3s;
+      white-space: nowrap;
+      width: 100%;
+    }
+  }
+
+  nav,
+  section,
+  footer {
+    border-bottom: 1px solid hsl($hue, $sat, 30%);
+    display: block;
+    float: left;
+    padding: 0.4em 0 1em;
+    width: 100%;
+  }
+
+  .contactMetaData {
+
+    dl,
+    dt,
+    dd {
+      display: inline;
+      margin: 0;
+      padding: 0;
+
+      &,
+      a {
+        font-size: 13px;
+      }
+    }
+
+    dl {
+      font-weight: $bold;
+
+      dt {
+        color: hsl($hue, $sat, 30%);
+        font-size: 9px;
+        text-transform: uppercase;
+
+        &:after {
+          content: '\00a0';
+        }
+      }
+
+      dd {
+
+        &:after {
+          content: '\A';
+          white-space: pre;
+        }
+      }
+    }
+
+    .socialLinks {
+      border-bottom: none;
+      border-top: 1px dotted hsl($hue, $sat, 20%);
+      // display: none;
+      margin: 10px 0 0;
+      padding: 10px 0 0;
+
+      ul,
+      ul li,
+      ul li a {
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+
+      ul {
+
+        li {
+          margin-right: 5px;
+          overflow: hidden;
+
+          &,
+          a {
+            font-family: $ionicons-font;
+            height: 24px;
+            line-height: 1;
+            text-align: center;
+            width: 24px;
+          }
+
+          a {
+            border-radius: 50%;
+            font-size: 14px;
+            padding: 5px 0 0 1px;
+            text-shadow: 0 0 1px rgba(0, 0, 0, .5);
+          }
+        }
+
+        #twitter a    { background-color: hsl($hue, $sat, 36%); }
+        #facebook a   { background-color: hsl($hue, $sat, 29%); }
+        #linkedin a   { background-color: hsl($hue, $sat, 29%); }
+        #googleplus a { background-color: hsl($hue, $sat, 33%); }
+
+        #twitter a:after    { content: '\f243'; }
+        #facebook a:after   { content: '\f231'; }
+        #linkedin a:after   { content: '\f239'; }
+        #googleplus a:after { content: '\f235'; }
+
+        #twitter a:hover    { background-color: hsl($hue, $sat, 41%); }
+        #facebook a:hover   { background-color: hsl($hue, $sat, 34%); }
+        #linkedin a:hover   { background-color: hsl($hue, $sat, 34%); }
+        #googleplus a:hover { background-color: hsl($hue, $sat, 38%); }
+      }
+    }
+  }
+
+  .siteMetaData {
+
+    ul {
+
+      &,
+      & li,
+      & li a {
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+
+      li {
+        // border-bottom: 1px solid hsl($hue, $sat, 20%);
+        // border-right: 1px solid hsl($hue, $sat, 20%);
+        height: 35px;
+        text-align: center;
+        width: 25%;
+
+        img {
+          height: 70%;
+          margin-top: 4px;
+          width: auto;
+        }
+
+        a {
+          height: 100%;
+          width: 100%;
+
+          &:focus,
+          &:hover,
+          &:active {
+            background-color: hsl(0, 0%, 20%);
+          }
+        }
+      }
+
+      .span-1 { width: 25%; }
+      .span-2 { width: 50%; }
+      .span-3 { width: 75%; }
+      .span-4 { width: 100%; }
+
+      // #iLoveDrupal,
+      // #iLoveGit,
+      // #iLoveMDN,
+      // #iLoveHTML5,
+      // #iLoveJavaScript,
+      // #iLovejQuery,
+      // #iLoveQUnit,
+      // #iLoveAdobeCC {
+      //   border-left: 1px solid hsl($hue, $sat, 20%);
+      // }
+
+      // #iLoveCSS3,
+      // #iLoveJavaScript,
+      // #iLovejQuery,
+      // #iLoveApple,
+      // #iLoveQUnit,
+      // #iLoveAdobeCC {
+      //   border-top: 1px solid hsl($hue, $sat, 20%);
+      // }
+    }
+  }
+
+  .siteCredits {
+
+    ul {
+      font-size: 10px;
+
+    &,
+    & li,
+    & li a {
+      display: block;
+      float: left;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+      li {
+        margin-bottom: 0.5em;
+
+        a {
+          line-height: 1.2;
+        }
+      }
+    }
+
+    small {
+      font-weight: $normal;
+      font-size: 100%;
+    }
+  }
+
+  footer {
+    border-bottom: none;
+    font-size: 10px;
+  }
+}
+
+.home .primaryStack {
+
+  @include breakpoint($large-min) {
+    bottom: 0;
+    height: auto;
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+.offcanvasactive .primaryStack {
+  transform: translate3d(250px, 0, 0);
+  transition: transform .5s ease-in;
+
+  @include breakpoint($small-min $medium-max) {
+    box-shadow: inset -20px 0 20px -20px hsl($hue, $sat, 0%);
+  }
+}
+

@@ -1,0 +1,106 @@
+---
+layout: default.hbs
+---
+<article id="article" class="article">
+  <div id="tertiaryStack" class="portfolioStack">
+    <a class="offCanvasToggle" href="#"></a>
+    <header>
+      <span class="section">{{page.section}}</span>
+      <span class="tag">{{page.tags}}</span>
+      <h2>{{title}}</h2>
+    </header>
+    <section class="description">
+      <p>{{description}}</p>
+    </section>
+    {{#if metadata}}
+    <section id="metaData" class="metaData">
+      {{#if metadata.designCredit}}
+        <dl>
+          <dt>Design Credit</dt>
+          {{#each metadata.designCredit}}
+            <dd>{{.}}</dd>
+          {{/each}}
+        </dl>
+      {{/if}}
+      {{#if metadata.buildCredit}}
+        <dl>
+          <dt>Build Credit</dt>
+          {{#each metadata.buildCredit}}
+            <dd>{{.}}</dd>
+          {{/each}}
+        </dl>
+      {{/if}}
+      {{#if metadata.typography}}
+        <dl>
+          <dt>Typography</dt>
+          {{#each metadata.typography}}
+            <dd>{{.}}</dd>
+          {{/each}}
+        </dl>
+      {{/if}}
+      {{#if metadata.dimensions}}
+        <dl>
+          <dt>Dimensions</dt>
+          {{#each metadata.dimensions}}
+            <dd>{{.}}</dd>
+          {{/each}}
+        </dl>
+      {{/if}}
+      {{#if metadata.client}}
+        <dl>
+          <dt>Client</dt>
+          {{#each metadata.client}}
+            <dd>{{.}}</dd>
+          {{/each}}
+        </dl>
+      {{/if}}
+      {{#if metadata.productionTime}}
+        <dl>
+          <dt>Production Time</dt>
+          {{#each metadata.productionTime}}
+            <dd>{{.}}</dd>
+          {{/each}}
+        </dl>
+      {{/if}}
+    </section>
+    {{/if}}
+    <nav class="tabs">
+      <ul>
+        <li{{#unless liveURL}} class="off"{{/unless}}>
+          {{#if liveURL}}
+            <a href="#liveWrap">Live Preview<br><small>All systems go</small></a>
+          {{/if}}
+          {{#unless liveURL}}
+            <div>Live Preview<br><small>Unavailable on current device size</small></div>
+          {{/unless}}
+        </li>
+        <li{{#unless images}} class="off"{{/unless}}>
+          {{#if images}}
+            <a href="#thumbnails">Screenshots<br><small>Click to enlarge</small></a>
+          {{/if}}
+          {{#unless images}}
+            <div>Thumbnails<br><small>Unavailable</small></div>
+          {{/unless}}
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="views tabs">
+    {{#if liveURL}}
+      <section id="liveWrap" class="liveWrap">
+        <iframe id="live" class="live" src="{{liveURL}}"></iframe>
+      </section>
+    {{/if}}
+    {{#if images}}
+      <section id="thumbnails" class="thumbnails">
+        {{#each images}}
+          <figure class="tile thumbnail">
+            <div class="colorCodeOverlay"></div>
+            <a class="effectOverlay" href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} rel="enlarge"></a>
+            <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.description}}">
+          </figure>
+        {{/each}}
+      </section>
+    {{/if}}
+  </div>
+</article>

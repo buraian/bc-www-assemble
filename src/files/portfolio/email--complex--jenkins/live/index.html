@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+** Master Agent Email Newsletter Template :: Jenkins
+** Author: Distribion
+** Date: 2013-05-01
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title></title>
+        <style type="text/css">
+        /* Client-specific Styles */
+        #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+        body{width:100% !important;} .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 1.4;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+        body{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%} /* Prevent Webkit and Windows Mobile platforms from changing default text sizes. */
+
+        /* Reset Styles */
+        body{margin:0; padding:0;}
+        img{border:none; line-height:100%; outline:none; text-decoration:none;}
+        table {border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;}
+        table td{border-collapse:collapse;} /* Bring inline? No */;
+        #backgroundTable{height:100% !important; margin:0; padding:0; width:100% !important; line-height: 1.4 !important;}
+
+        /* Template Styles */
+        body, #backgroundTable {
+            background-color: #333333;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: Georgia, Times, 'Times New Roman', serif;
+            color: #990000 !important;
+            font-weight: normal;
+            line-height: 100%;
+            display: block;
+            margin-bottom: 10px;
+            margin-right: 0;
+            margin-left: 0;
+            margin-top: 0;
+            padding-bottom: 0;
+            padding-right: 0;
+            padding-left: 0;
+            padding-top: 0;
+        }
+
+        h1 {font-size: 21px;}
+        h2 {font-size: 18px;}
+        h3 {font-size: 16px;}
+        h4 {font-size: 14px;}
+
+        h1 a, h2 a, h3 a, h4 a {color: #990000 !important;}
+
+        p {
+            margin-bottom: 1em;
+            line-height: 1.4;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+
+        a[href^="tel"], a[href^="sms"] {
+            text-decoration: none;
+            pointer-events: none;
+            cursor: default;
+            color: #333333;
+        }
+
+        /* Weblink Styles */
+        #weblinkTable td {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: center;
+            line-height: 1;
+            font-size: 13px;
+            color: #FFFFFF;
+        }
+
+        #weblinkTable a {
+            text-decoration: none !important;
+            color: #FFFFFF !important;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        #weblinkTable a[href^="tel"], #weblinkTable a[href^="sms"] {
+            text-decoration: none;
+            pointer-events: none;
+            font-weight: bold;
+            cursor: default;
+            color: #FFFFFF;
+        }
+
+        /* Main Column Styles */
+        .mainColumn {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: left;
+            line-height: 1.4;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .mainColumn a {
+            text-decoration: none !important;
+            color: #990000 !important;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .mainColumn a[href^="tel"], .mainColumn a[href^="sms"] {
+            text-decoration: none;
+            pointer-events: none;
+            font-weight: bold;
+            cursor: default;
+            color: #990000;
+        }
+
+        .greeting {
+            font-family: Georgia, Times, 'Times New Roman', serif;
+            font-weight: normal;
+            font-size: 18px;
+            color: #990000;
+        }
+
+        /* Agent Styles */
+        .agentContents {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: left;
+            line-height: 1.4;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .agentName {
+            font-weight: bold;
+            font-size: 18px;
+            color: #990000;
+        }
+
+        .agentTitle {
+            font-weight: bold;
+        }
+
+        .agentContactType {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 10px;
+            color: #990000;
+        }
+        
+        .agentContactType a[href^="tel"], .agentContactType a[href^="sms"] {
+            text-decoration: none;
+            pointer-events: none;
+            font-weight: normal;
+            cursor: default;
+            color: #333333;
+        }
+
+        /* Sidebar Tables */
+        .sidebar {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: left;
+            line-height: 1.4;
+            font-size: 13px;
+            color: #333333;
+        }
+
+        /* Offer Styles */
+        .offerContents {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #ede4d1 !important;
+            text-align: left;
+            line-height: 1.4;
+            font-size: 13px;
+        }
+
+        .offerContents a[href^="tel"], .offerContents a[href^="sms"] {
+            text-decoration: none;
+            pointer-events: none;
+            font-weight: bold;
+            cursor: default;
+            color: #ede4d1;
+        }
+
+        .callout {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-align: left;
+            line-height: 1.3;
+            font-size: 21px;
+            color: #FFFFFF;
+        }
+
+        /* Footer Styles */
+        .footerTableContents {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: left;
+            line-height: 1.2;
+            font-size: 11px;
+            color: #FFFFFF;
+        }
+
+        #footerTable a {
+            text-decoration: none !important;
+            color: #FFFFFF !important;
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .socialLinks {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-decoration: none !important;
+            line-height: 1.8 !important;
+            color: #FFFFFF !important;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        </style>
+    </head>
+    <body bgcolor="#333333" style="background-color: #333333; width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin-top: 0; margin-right: 0; margin-left: 0; margin-bottom: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+        
+        <!-- #backgroundTable -->
+        <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="background-color: #333333; width:100% !important; height:100% !important; margin:0; padding:0; line-height: 1.4 !important; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+            <tr>
+                <td align="center" valign="top" bgcolor="#333333">
+
+                    <!-- #weblinkTable -->
+                    <table align="center" valign="top" border="0" cellpadding="0" cellspacing="0" id="weblinkTable" style=" width:600px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                        <tr>
+                            <td width="600" height="30" align="center" valign="bottom" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center; line-height: 1; font-size: 13px; color: #FFFFFF;">
+                                <a href="[weblinkURL]" target="_blank" title="View Web Version" style="text-decoration: none !important; color: #FFFFFF !important; font-weight: bold; font-size: 13px;">View Web Version</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--/ #weblinkTable -->
+
+                    <!-- .outerForegroundTable 600px -->
+                    <table align="center" valign="top" border="0" cellpadding="0" cellspacing="0" class="outerForegroundTable" style="width:600px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                        <tr>
+                            <td width="10" height="10"><img src="images/salesrep_outershadow_topleft.gif" width="10" height="10" style="display: block;" /></td>
+                            <td width="580" height="10"><img src="images/salesrep_outershadow_top.gif" width="580" height="10" style="display: block;" /></td>
+                            <td width="10" height="10"><img src="images/salesrep_outershadow_topright.gif" width="10" height="10" style="display: block;" /></td>
+                        </tr>
+                        <tr>
+                            <td width="10" valign="top"><img src="images/salesrep_outershadow_left.gif" width="10" height="580" style="display: block;" /></td>
+                            <td width="580">
+
+                                <!-- .innerForegroundTable 580px -->
+                                <table align="center" valign="top" border="0" cellpadding="0" cellspacing="0" class="innerForegroundTable" style="background-color: #FFFFFF; width:580px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td width="375" valign="top" class="mainColumn" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 14px; color: #333333;">
+
+                                            <!-- .mainColumn -->
+                                            <table border="0" cellpadding="0" cellspacing="0" style="width:375px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="20" height="20"><img src="images/salesrep_cornerwhite_topleft.gif" width="20" height="20" style="display: block;" /></td>
+                                                    <td width="335" height="20"><!--spacer--></td>
+                                                    <td width="20" height="20"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20" height="20"><!--spacer--></td>
+                                                    <td width="335" height="20" valign="bottom" class="greeting" style="font-family: Georgia, Times, 'Times New Roman', serif; font-weight: normal; font-size: 18px; color: #990000;">Dear [p:first_name],</td>
+                                                    <td width="20" height="20"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20" height="20"><!--spacer--></td>
+                                                    <td width="335" height="20" style="border-bottom: 1px dotted #957f4c;"><!--spacer--></td>
+                                                    <td width="20" height="20"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20" height="10"><!--spacer--></td>
+                                                    <td width="335" height="10"><!--spacer--></td>
+                                                    <td width="20" height="10"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20" height="20"><!--spacer--></td>
+                                                    <td width="335" height="20"><img src="images/salesrep_featuredimage_ipad_ereaders.jpg" width="325" height="172" style="display: block;" /></td>
+                                                    <td width="20" height="20"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20"></td>
+                                                    <td width="335" valign="top" class="mainColumn" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 14px; color: #333333;">
+                                                        <p style="margin-bottom: 1em; line-height: 1.4;">Thinking of converting to your book or entire backlist to digital eBooks but don't know how?  Well, we can answer all of your questions. Let me introduce you to <b>Jenkins Group Digital</b>, eBook services that develop and deliver electronic content to the most popular e-readers currently available with quality, service and satisfaction. <a href="http://jenkins.dmplocal.com/sites/24/index.html?viewers_email=[recipient_email]&profile_email=[p:email]#contactMe" target="_blank" style="text-decoration: none !important; color: #990000 !important; font-weight: bold; font-size: 14px;">Get your complimentary conversion quote today!</a></p>
+                                                        <p style="margin-bottom: 1em; line-height: 1.4;">Whether you're converting your existing title or creating a brand-new book, our services offer the highest quality and most cost-effective delivery of your eBook to the market. Sixty-four percent of publishers offer titles in eBook format, are you?</p>
+                                                        <p style="margin-bottom: 1em; line-height: 1.4;">Producing an ebook for today's mobile market is fast, easy and economical with Jenkins Group Digital's twenty-three years of experience. And, we now offer distribution services of your eBook to the Internet's top three eBook sellers.</p>
+                                                        <p style="margin-bottom: 1em; line-height: 1.4;">Our team develops and converts books to eBook files for the <b>Amazon Kindle</b> and the new <b>Kindle Fire</b>, <b>Apple iPad</b> and <b>iPhone</b>, <b>Nook</b>, <b>Droid</b>, <b>Sony eReader</b>, smart phones and nearly all other mobile devices. Our experience offers you the flexibility to deliver your book in more ways than ever before.  Your new eBook will become the perfect companion piece to your existing book and serve the near 50% of readers who exclusively seek content on mobile devices.</p>
+                                                        <p style="margin-bottom: 1em; line-height: 1.4;">Conversion prices start around $475 to receive the ePub for Apple and Barnes &amp; Noble as well as the Kindle digital files of your title. Three files covering 98% of the market, all for one low price. Children's books start at around $395 per title for our full conversion services. Why wait? <a href="http://jenkins.dmplocal.com/sites/24/index.html?viewers_email=[recipient_email]&profile_email=[p:email]#contactMe" target="_blank" style="text-decoration: none !important; color: #990000 !important; font-weight: bold; font-size: 14px;">Contact me for your free conversion quote today!</a> Multi-title discounts are also available for publisher backlists, series and multi-volume works.</p>
+                                                        <p style="margin-bottom: 1em; line-height: 1.4;">I look forward to helping you soon!</p>
+                                                        <p style="margin-bottom: 1em; line-height: 1.4;">Best regards,</p>
+                                                    </td>
+                                                    <td width="20" height="20"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20" height="10"><!--spacer--></td>
+                                                    <td width="335" height="10"><!--spacer--></td>
+                                                    <td width="20" height="10"><!--spacer--></td>
+                                                </tr>
+                                            </table>
+                                            <!--/ .mainColumn -->
+
+                                        </td>
+                                        <td width="205" valign="top" class="sidebar" style="background-color: #ede4d1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #333333;">
+
+                                            <!-- #offer -->
+                                            <table border="0" cellpadding="0" cellspacing="0" id="offer" style="background-color: #990000; width:205px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="20" valign="top" rowspan="2"><img src="images/salesrep_shadowred_left.gif" width="20" height="225" style="display: block;" /></td>
+                                                    <td width="165"><!--spacer--></td>
+                                                    <td width="20" height="20"><img src="images/salesrep_cornerred_topright.gif" width="20" height="20" style="display: block;" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="165" valign="top" class="offerContents" style="color: #ede4d1;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" style="width:165px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td width="165" class="callout" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; text-align: left; line-height: 1.3; font-size: 21px; color: #FFFFFF;">
+                                                                    Get your complimentary conversion quote today!
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="20"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" align="left" class="offerContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #ede4d1;">
+                                                                    <a href="http://" target="_blank">
+                                                                        <img src="images/salesrep_contactbuttontan.gif" width="98" height="36" alt="Contact [p:first_name] [p:last_name]" title="Contact [p:first_name] [p:last_name]" style="background-color: #ede4d1; text-decoration: none !important; color: #FFFFFF !important; font-weight: bold; display: block; font-size: 12px;" border="0" />
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="15"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" class="offerContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #ede4d1 !important;">
+                                                                    or<br />
+                                                                    <b>Call 1.800.706.4636</b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="10"><!--spacer--></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td width="20"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="185" colspan="3"><img src="images/salesrep_shadowred_bottom.gif" width="205" height="20" style="display: block;" /></td>
+                                                </tr>
+                                            </table>
+                                            <!--/ #offer -->
+
+                                            <!-- #aboutJenkins -->
+                                            <table border="0" cellpadding="0" cellspacing="0" id="aboutJenkins" style="width:205px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="20" style="border-bottom: 1px dotted #957f4c;"><img src="images/salesrep_shadowtan_left_special.gif" width="20" height="70" style="display: block;" /></td>
+                                                    <td width="165" height="70" style="border-bottom: 1px dotted #957f4c;"><h2 style="font-family: Georgia, Times, 'Times New Roman', serif; color: #990000 !important; font-weight: normal; font-size: 18px; line-height: 100%; display: block; padding: 0; margin: 0;">About Jenkins</h2></td>
+                                                    <td width="20" style="border-bottom: 1px dotted #957f4c;"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20" valign="top"><img src="images/salesrep_shadowtan_left.gif" width="20" height="660" style="display: block;" /></td>
+                                                    <td width="165" valign="top">
+                                                        <table border="0" cellpadding="0" cellspacing="0" style="width:165px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td width="165" height="20" colspan="2"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" colspan="2" class="sidebar" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #333333;"><b>Jenkins Group Digital Offers You the Opportunity to:</b></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="15" colspan="2"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="12" valign="top"><img src="images/salesrep_bullet.gif" width="12" height="12" style="display: block;" /></td>
+                                                                <td width="153" class="sidebar" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #333333;">Work directly with our staff on the design and production of the eBook publishing process</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="15" colspan="2"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="12" valign="top"><img src="images/salesrep_bullet.gif" width="12" height="12" style="display: block;" /></td>
+                                                                <td width="153" class="sidebar" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #333333;">Convert your existing books to the files that serve a wide variety of eBooks formats</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="15" colspan="2"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="12" valign="top"><img src="images/salesrep_bullet.gif" width="12" height="12" style="display: block;" /></td>
+                                                                <td width="153" class="sidebar" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #333333;">Create brand new ebooks while saving time and money to get books to market fast</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="15" colspan="2"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="12" valign="top"><img src="images/salesrep_bullet.gif" width="12" height="12" style="display: block;" /></td>
+                                                                <td width="153" class="sidebar" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #333333;">Boost your book sales and reduce your production costs</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="15" colspan="2"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="12" valign="top"><img src="images/salesrep_bullet.gif" width="12" height="12" style="display: block;" /></td>
+                                                                <td width="153" class="sidebar" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #333333;">Creating new sales channels and increasing your book's availability has never been faster! Generate new revenue and be a part of the digital age.</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" height="20" colspan="2"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="165" colspan="2" align="left" class="sidebar" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 13px; color: #333333;">
+                                                                    <a href="http://jenkins.dmplocal.com/sites/24/index.html?viewers_email=[recipient_email]&profile_email=[p:email]#custombookpublishing" target="_blank">
+                                                                        <img src="images/salesrep_viewoffersbuttonred.gif" width="125" height="36" alt="Contact [p:first_name] [p:last_name]" title="Contact [p:first_name] [p:last_name]" style="background-color: #990000; text-decoration: none !important; color: #FFFFFF !important; font-weight: bold; display: block; font-size: 14px;" border="0" />
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td width="20"><!--spacer--></td>
+                                                </tr>
+                                            </table>
+                                            <!--/ #aboutJenkins -->
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!--/ .innerForegroundTable -->
+
+                            </td>
+                            <td width="10" valign="top"><img src="images/salesrep_outershadow_right.gif" width="10" height="580" style="display: block;" /></td>
+                        </tr>
+                    </table>
+                    <!--/ .outerForegroundTable -->
+
+                    <!-- .outerForegroundTable 600px -->
+                    <table align="center" valign="top" border="0" cellpadding="0" cellspacing="0" class="outerForegroundTable" style="width:600px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                        <tr>
+                            <td width="10" valign="bottom"><img src="images/salesrep_outershadow_lowerleft.gif" width="10" height="170" style="display: block;" /></td>
+                            <td width="580" valign="top">
+
+                                <!-- .innerForegroundTable 580px -->
+                                <table align="center" valign="top" border="0" cellpadding="0" cellspacing="0" class="innerForegroundTable" style="background-color: #FFFFFF; width:580px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td width="375" valign="top" class="mainColumn" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 14px; color: #333333;">
+
+                                            <!-- #agentInfo -->
+                                            <table border="0" cellpadding="0" cellspacing="0" id="agentInfo" style="width:375px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="365" height="20" colspan="2" style="border-top: 1px solid #FFFFFF;"><img src="images/salesrep_white_divider.gif" width="365" height="30" style="display: block;" /></td>
+                                                    <td width="20" height="20" style="border-top: 1px solid #FFFFFF;"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20" height="120"><!--spacer--></td>
+                                                    <td width="335" valign="top">
+                                                        <table border="0" cellpadding="0" cellspacing="0" style="width:335px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td width="100" rowspan="3" align="left" valign="top" class="agentContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 14px; color: #333333;">
+                                                                    [p:head_shot]
+                                                                    <a href="http://jenkins.dmplocal.com/sites/24/index.html?viewers_email=[recipient_email]&profile_email=[p:email]#contactMe" target="_blank">
+                                                                        <img src="images/salesrep_contactbuttonred.gif" width="90" height="22" alt="Contact [p:first_name] [p:last_name]" title="Contact [p:first_name] [p:last_name]" style="background-color: #990000; text-decoration: none !important; color: #FFFFFF !important; font-weight: bold; display: block; font-size: 12px;" border="0" />
+                                                                    </a>
+                                                                </td>
+                                                                <td width="235" valign="top" class="agentContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 14px; color: #333333;">
+                                                                    <div class="agentName" style="font-weight: bold; font-size: 18px; color: #990000;">[p:first_name] [p:last_name]</div>
+                                                                    <div class="agentTitle" style="font-weight: bold;">[p:title]</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="235" height="20" colspan="2"><!--spacer--></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="235" valign="top" class="agentContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.4; font-size: 14px; color: #333333;">
+                                                                    <div><span class="agentContactType" style="text-transform: uppercase; font-weight: bold; font-size: 10px; color: #990000;">[p:phone:"Phone:"]</span> [p:phone]</div>
+                                                                    <div><span class="agentContactType" style="text-transform: uppercase; font-weight: bold; font-size: 10px; color: #990000;">[p:email:"Email:"]</span> <a href="mailto:[p:email]" target="_blank" style="text-decoration: none !important; color: #333333 !important; font-weight: normal; font-size: 14px;">[p:email]</a></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td width="20"><!--spacer--></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="20" height="20"><img src="images/salesrep_cornerwhite_bottomleft.gif" width="20" height="20" style="display: block;" /></td>
+                                                    <td width="335" height="20"><!--spacer--></td>
+                                                    <td width="20" height="20"><!--spacer--></td>
+                                                </tr>
+                                            </table>
+                                            <!--/ #agentInfo -->
+
+                                        </td>
+                                        <td width="20" style="border-top: 1px dotted #957f4c; background-color:#ede4d1;"><!--spacer--></td>
+                                        <td class="sidebar" width="165" align="center" valign="middle" style="border-top: 1px dotted #957f4c; background-color:#ede4d1; width:165px !important; text-align:center;">
+                                            <a href="http://" target="_blank">
+                                                <img src="images/salesrep_jenkinslogo_tanbg.gif" width="151" height="66" alt="[p:company]" title="[p:company]"  style="text-decoration: none !important; text-transform: uppercase; text-align: center; color: #333333 !important; font-weight: bold; font-size: 16px;" border="0" />
+                                            </a>
+                                        </td>
+                                        <td width="20" valign="bottom" style="border-top: 1px dotted #957f4c; background-color:#ede4d1;"><img src="images/salesrep_cornertan_bottomright.gif" width="20" height="20" style="display: block;" /></td>
+                                    </tr>
+                                </table>
+                                <!--/ .innerForegroundTable -->
+
+                            </td>
+                            <td width="10" valign="bottom"><img src="images/salesrep_outershadow_lowerright.gif" width="10" height="170" style="display: block;" /></td>
+                        </tr>
+                        <tr>
+                            <td width="10" height="10"><img src="images/salesrep_outershadow_bottomleft.gif" width="10" height="10" style="display: block;" /></td>
+                            <td width="580" height="10"><img src="images/salesrep_outershadow_bottom.gif" width="580" height="10" style="display: block;" /></td>
+                            <td width="10" height="10"><img src="images/salesrep_outershadow_bottomright.gif" width="10" height="10" style="display: block;" /></td>
+                        </tr>
+                    </table>
+                    <!--/ .outerForegroundTable -->
+
+                    <!-- #footerTable -->
+                    <table border="0" cellpadding="0" cellspacing="0" id="footerTable" style="width:600px !important; margin:0; padding:0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                        <tr>
+                            <td width="30"><!--spacer--></td>
+                            <td width="335" align="left" valign="top" class="footerTableContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.2; font-size: 11px; color: #FFFFFF;">
+                                <p>To remove your email from our mailing list, please click the link below.<br />
+                                    <a href="[unsubscribelinkURL]&dmp_tag=UnsubscribeLink" target="_blank" title="Unsubscribe" style="text-decoration: none !important; color: #FFFFFF !important; font-weight: bold; font-size: 10px;">Change my subscription preferences.</a>
+                                </p>
+                                <p>Copyright &copy; [content-plain:current_year] Jenkins Group, Inc.<br />1129 Woodmere Ave Suite B Traverse City, MI 49686</p>
+                            </td>
+                            <td width="20"><!--spacer--></td>
+                            <td width="165" valign="top" class="footerTableContents" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.2; font-size: 11px; color: #FFFFFF;">
+                                <a href="[unsubscribelinkURL]&dmp_tag=UnsubscribeLink" target="_blank" title="[p:company] on Facebook" class="socialLinks" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-decoration: none !important; color: #FFFFFF !important; font-weight: bold; line-height: 1.8 !important; font-size: 14px;">
+                                    <img src="images/salesrep_facebook.gif" align="left" width="26" height="24" alt="Contact [p:first_name] [p:last_name]" title="Contact [p:first_name] [p:last_name]" style="background-color: #3c5a98; display: block;" border="0" />&nbsp;&nbsp;Facebook</td>
+                                </a>
+                            <td width="30"><!--spacer--></td>
+                        </tr>
+                    </table>
+                    <!-- #footerTable -->
+
+                </td>
+            </tr>
+        </table>
+        <!--/ #backgroundTable -->
+
+    </body>
+</html>

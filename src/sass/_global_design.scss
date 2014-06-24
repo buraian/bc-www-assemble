@@ -1,0 +1,47 @@
+// Global Design
+
+::-moz-selection {
+  background: hsl($hue + 120, $sat, 70%);
+  color: hsl($hue, $sat, 80%);
+  text-shadow: none;
+}
+
+::selection {
+  background: hsl($hue + 120, $sat, 70%);
+  color: hsl($hue, $sat, 80%);
+  text-shadow: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.browsehappy {
+  background: #ccc;
+  color: #000;
+  margin: 0.2em 0;
+  padding: 0.2em 0;
+}
+
+body {
+  background-color: hsl($hue, $sat, 100%);
+  color: hsl($hue, $sat, 15%);
+  font-family: $base-font-stack;
+  font-size: $base-font-size;
+  font-weight: $normal;
+  line-height: $base-line-height;
+  padding: 0;
+}
+
+main {
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+article.article {
+  float: left;
+  width: 100%;
+}

@@ -1,0 +1,29 @@
+// Drupal Maintenance Page
+
+#maintenance {
+  background-color: hsl($hue, $sat, 20%);
+  border: 1px solid hsl($hue, $sat, 50%);
+  color: hsl($hue, $sat, 50%);
+  border-radius: 50%;
+  padding: 55px 50px;
+  text-align: center;
+  margin: 30px auto;
+  height: 300px;
+  width: 300px;
+
+  h2 {
+    font-family: $base-font-stack;
+    color: hsl($hue, $sat, 50%);
+    font-size: 12px;
+  }
+
+  h3 {
+    font-family: $base-font-stack;
+    color: hsl($hue, $sat, 90%);
+    font-size: 30px;
+  }
+
+  p {
+    font-family: $header-font-stack;
+  }
+}

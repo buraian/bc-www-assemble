@@ -1,0 +1,145 @@
+// Primary Navigation
+
+@import 'mixins';
+@import 'extends';
+@import 'functions';
+
+.primaryNav {
+  font-family: $menu-font-stack;
+  font-weight: $normal;
+  text-transform: uppercase;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    &,
+    & li,
+    & li a {
+      display: block;
+      float: left;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    li {
+      margin: 0.1em 0;
+
+      &,
+      a {
+        color: hsl($hue, $sat, 70%);
+        font-size: 13px;
+        line-height: 1;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      a {
+        // cursor: pointer;
+
+        &,
+        &:visited {
+          padding: 0.5em 0;
+          width: 100%;
+
+          &:after {
+            background-color: transparent;
+            border: 1px solid transparent;
+            bottom: 0;
+            content: '\00a0';
+            height: auto;
+            left: -0.5em;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: 0.3s;
+            width: auto;
+            z-index: -1;
+          }
+        }
+
+        &:focus,
+        &:hover,
+        &:active {
+          color: hsl($hue, $sat, 70%);
+
+          &:after {
+            border-color: hsl($hue, $sat, 40%);
+          }
+        }
+      }
+
+      &.active {
+        > a,
+        > a:visited {
+          color: hsl($hue, $sat, 15%);
+
+          &:after {
+            background-color: hsl($hue, $sat, 30%);
+            border: 1px solid hsl($hue, $sat, 30%);
+          }
+        }
+
+        > a:focus,
+        > a:hover,
+        > a:active {
+
+          &:after {
+            background-color: hsl($hue, $sat, 35%);
+            border-color: hsl($hue, $sat, 35%);
+          }
+        }
+      }
+
+      ul {
+        margin-left: -0.3em;
+        margin-top: 0.1em;
+        width: auto;
+
+        li {
+          margin: 0.2em 0.3em 0.2em 0;
+          width: auto;
+
+          &,
+          a {
+            font-family: $header-font-stack;
+            font-size: 8px;
+            letter-spacing: -0.1em;
+          }
+
+          a {
+
+            &,
+            &:visited {
+              color: hsl($hue, $sat, 40%);
+              padding: 0.5em;
+
+              &:after {
+                left: 0;
+              }
+            }
+
+            &:focus,
+            &:hover,
+            &:active {
+              color: hsl($hue, $sat, 40%);
+
+              &:after {
+                border-color: hsl($hue, $sat, 30%);
+              }
+            }
+          }
+
+          &.active {
+            > a,
+            > a:visited {
+              color: hsl($hue, $sat, 15%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

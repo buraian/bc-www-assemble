@@ -1,0 +1,87 @@
+// Off-Canvas Wrap
+
+@import 'mixins';
+@import 'extends';
+@import 'functions';
+
+a.offCanvasToggle {
+  color: hsl($hue, $sat, 50%);
+  display: block;
+  float: left;
+  height: 40px;
+  margin: 10px;
+  position: relative;
+  width: 40px;
+
+  &:before {
+    bottom: 0;
+    content: '\f20e';
+    font-family: $ionicons-font;
+    font-size: 30px;
+    font-weight: $normal;
+    height: auto;
+    left: 0;
+    line-height: 1;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: auto;
+  }
+
+  &:hover {
+
+    &:before {
+      color: hsl($hue, $sat, 60%);
+    }
+  }
+
+  &.active {
+
+    &:before {
+      color: hsl($hue, $sat, 90%);
+      text-shadow: 0 0 20px hsl($hue, $sat, 100%);
+    }
+  }
+}
+
+.offCanvasWrap {
+  bottom: 0;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform .4s ease-out;
+  width: auto;
+
+  .exitOffCanvas {
+    background-color: hsl($hue, $sat, 100%);
+    bottom: 0;
+    height: auto;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.3s;
+    visibility: hidden;
+    width: auto;
+    z-index: 10000;
+
+    @include breakpoint($large-min) {
+      display: none;
+    }
+  }
+}
+
+.offcanvasactive .offCanvasWrap {
+  transform: translate3d(250px, 0, 0);
+  transition: transform .5s ease-in;
+
+  .exitOffCanvas {
+    opacity: .8;
+    visibility: visible;
+  }
+}

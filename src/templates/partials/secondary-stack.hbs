@@ -1,0 +1,24 @@
+---
+component: secondarystack
+---
+<nav id="secondaryStack" class="secondaryStack">
+  <header>
+    <h2><a href="/portfolio.html">Portfolio</a></h2>
+  </header>
+  {{!--
+  <nav id="secondaryNav" class="secondaryNav">
+    <ul>
+      {{#is page.section "portfolio"}}
+        {{#each pages}}
+          <li{{#if this.isCurrentPage}} class="active"{{/if}}>
+            <a href="{{relative dest this.dest}}">
+              {{data.title}}<br>
+              <small>{{data.overview}}</small>
+            </a>
+          </li>
+        {{/each}}
+      {{/is}}
+    </ul>
+  </nav>
+  --}}
+</nav>

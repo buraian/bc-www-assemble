@@ -1,0 +1,61 @@
+// Mobile Stack
+
+@import 'mixins';
+@import 'extends';
+@import 'functions';
+
+.mobileStack {
+  background-color: hsl($hue, $sat, 15%);
+  float: left;
+  font-family: $header-font-stack;
+  height: 60px;
+  text-transform: uppercase;
+  width: 100%;
+
+  @include breakpoint($large-min) {
+    display: none;
+  }
+
+  h1 {
+    color: hsl($hue, $sat, 60%);
+    display: block;
+    float: left;
+    font-size: 18px;
+    padding: 17px 0 0;
+
+    a,
+    a:visited {
+      color: hsl($hue, $sat, 60%);
+    }
+  }
+
+  small {
+    font-family: $header-special-font-stack;
+    font-size: 16px;
+    font-weight: $normal;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  span {
+    color: hsl($hue, $sat, 85%);
+  }
+
+  & + small {
+    border-top: 1px solid hsl($hue, $sat, 20%);
+    color: hsl($hue, $sat, 45%);
+    display: block;
+    float: left;
+    font-family: $base-font-stack;
+    font-size: 10px;
+    font-weight: $bold;
+    letter-spacing: .5em;
+    padding: 4px 0 6px;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
+.portfolio .mobileStack {
+  display: none;
+}

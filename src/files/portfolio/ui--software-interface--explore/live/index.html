@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+        <link rel="stylesheet" href="css/normalize.v2.1.3.css">
+        <link rel="stylesheet" href="css/style.custom.explore.homepage.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic' type='text/css'>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <!-- Carousel -->
+        <div id="carousel" class="carousel slide clearfix" data-ride="carousel">
+            <div class="carousel-inner">
+                <header class="item">
+                    <span class="lead-in">Welcome Jack</span>
+                    <h2><span class="verb">Get</span>Started</h2>
+                </header>
+                <header class="item active">
+                    <h2>Custom Resource Center</h2>
+                </header>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div id="nav" class="clearfix">
+
+            <nav id="primary-nav">
+                <ul>
+                    <li>
+                        <a href="#get-started" data-toggle="tab">Get Started</a>
+                        <div class="tooltip top left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        <div class="tooltip-arrow"></div>
+                    </li>
+                    <li class="active">
+                        <a href="#1" data-toggle="tab">Custom Resource Center</a>
+                        <div class="tooltip top left">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                        <div class="tooltip-arrow"></div>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Supplemental Navigation -->
+            <nav id="supplemental-nav">
+                <ul>
+                    <li id="settings" class="glyphicon glyphicon-cog">
+                        <div class="tooltip bottom right">
+                            <form>
+                                <fieldset>
+                                    <legend>Show</legend>
+                                    <ul>
+                                        <li><input type="checkbox" name="setting-show-headshot" id="setting-show-headshot" checked> <label for="setting-show-headshot">Profile Headshot on Home</label></li>
+                                    </ul>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="tooltip-arrow"></div>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Navbar Element -->
+            <nav class="nav-element">
+                <ul>
+                    <li id="switch-to-get-started" class="active">First time? <a href="#">Get Started</a></li>
+                    <li id="switch-to-home">Not your first time? <a href="#">Skip this page</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!-- Content Panes -->
+        <div id="panes" class="tab-content clearfix">
+
+            <!-- Get Started -->
+            <div id="get-started" class="primary-pane tab-pane fade clearfix">
+                <ol class="clearfix">
+                    <li id="step-1" class="step-box">
+                        <h3><em>Complete Your</em> Profile</h3>
+                        <div class="step-main">
+                            <div id="step-headshot">[p:head_shot]</div>
+                            <div id="step-information">
+                                <p id="step-name">[p:first_name] [p:last_name]&nbsp;</p>
+                                <p>[p:title]&nbsp;</p>
+                                <p><strong>[p:company]&nbsp;</strong></p>
+                                <dl>
+                                    <dt>[p:phone:"Phone: "]</dt> <dd>[p:phone]</dd>
+                                    <dt>[p:email:"Email: "]</dt> <dd>[p:email]</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <a href="index.php?action=changeprofile" class="btnColorLarge step-cta">Complete Profile</a>
+                        <div class="step-help">It is very important to complete your profile information and keep it updated. Profile fields are used to dynamically populate collateral with your contact information.</div>
+                    </li>
+                    <li id="step-2" class="step-box">
+                        <h3><em>Upload Your</em> Contacts</h3>
+                        <div class="step-main">
+                            <img src="images/custom-homepage-get-started-upload-contacts.png" width="266" height="150">
+                        </div>
+                        <a href="index.php?p=contactmgt.manage" class="btnColorLarge step-cta">Upload Contacts</a>
+                        <div class="step-help">Upload your contacts now so that they will be available when you are ready to send out communications. These can be modified at any time.</div>
+                    </li>
+                    <li id="step-3" class="step-box">
+                        <h3><em>Access</em> Materials</h3>
+                        <div class="step-main">
+                            <img src="images/custom-homepage-get-started-access-materials.png" width="266" height="104">
+                        </div>
+                        <a class="btnColorLarge step-cta">Access Materials</a>
+                        <div class="step-help">Access, view, and use available static and customizable materials.</div>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- 1 -->
+            <div id="1" class="primary-pane dark tab-pane active clearfix">
+                <aside id="welcome-bar">
+                    <div id="greeting" class="clearfix">Welcome [p:first_name],</div>
+                    <div id="profile" class="clearfix">
+                        <div id="profile-information">
+                            <div id="profile-headshot">[p:head_shot]</div>
+                            <p id="profile-name">[p:first_name] [p:last_name]</p>
+                            <p>[p:title]</p>
+                            <p><strong>[p:company]</strong></p>
+                            <dl>
+                                <dt>[p:phone:"Phone: "]</dt> <dd>[p:phone]</dd>
+                                <dt>[p:email:"Email: "]</dt> <dd>[p:email]</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div id="small-steps" class="clearfix">
+                        <ol>
+                            <li>
+                                <a href="index.php?action=changeprofile">Update Your Profile</a>
+                                <span class="glyph">
+                                    <div class="tooltip top">It is very important to complete your profile information and keep it updated. Profile fields are used to dynamically populate collateral with your contact information.</div>
+                                    <div class="tooltip-arrow"></div>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="index.php?p=contactmgt.manage">Update Your Contacts</a>
+                                <span class="glyph">
+                                    <div class="tooltip top">Upload your contacts now so that they will be available when you are ready to send out communications. These can be modified at any time.</div>
+                                    <div class="tooltip-arrow"></div>
+                                </span>
+                            </li>
+                            <li>
+                                Access Materials
+                                <span class="glyph active">
+                                    <div class="tooltip top">Access, view, and use available static and customizable materials.</div>
+                                    <div class="tooltip-arrow"></div>
+                                </span>
+                            </li>
+                        </ol>
+                    </div>
+                </aside>
+                <div class="tab-content">
+                    <section id="1-1" class="tab-content clearfix">
+                        <section id="1-1-1" class="tertiary-pane clearfix tab-pane active">
+                            <h3>Access Materials</h3>
+                            <div class="row">
+                                <div class="box half">
+                                    <h4>Bundled Email Campaigns</h4>
+                                    <p>Automate your marketing emails through setting up a bundled campaign with multiple emails set at different intervals. </p>
+                                    <a href="index.php?p=mam3.browse&filter[selected]=128" class="btnDarkSmall">Access a Bundle</a>
+                                </div>
+                                <div class="box half">
+                                    <h4>Single Email Campaigns</h4>
+                                    <p>Choose an email from our library of annuity and prospecting emails.</p>
+                                    <a href="index.php?p=mam3.browse&filter[selected]=129" class="btnDarkSmall">Access a Single Email</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box half">
+                                    <h4>Campaign Reporting</h4>
+                                    <p>View your scheduled campaigns, track who opened and responded to your emails and view your contact me requests. Also see how your contact list performed.</p>
+                                    <a href="index.php?p=email2.view_pending" class="btnDarkSmall">Scheduled</a>
+                                    <a href="index.php?p=email2.view_live_emails" class="btnDarkSmall">Sent Emails</a>
+                                    <a href="index.php?p=surveysystem.browse" class="btnDarkSmall">Contact Requests</a>
+                                    
+                                </div>
+                                <div class="box half">
+                                    <h4>Support</h4>
+                                    <p>Need help or have questions?  Fill out a help request form or watch the getting started video.</p>
+                                    <a href="#" target="blank" class="btnDarkSmall">Get Help</a>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.ba_resize.min.js"></script>
+        <script src="js/cookie.min.js"></script>
+        <script src="js/script.custom.explore.homepage.js"></script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+// Portfolio Articles Layout
+
+@import 'mixins';
+@import 'extends';
+@import 'functions';
+
+.portfolio main {
+
+  @include breakpoint($medium-min) {
+    padding-left: 0;
+  }
+}
+
+.portfolio .views {
+
+  @include breakpoint($medium-min) {
+    bottom: 0;
+    height: auto;
+    left: 250px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    z-index: 100;
+  }
+}
+
+.thumbnails,
+.liveWrap {
+
+  @include breakpoint($small-min $small-max) {
+    float: left;
+    width: 100%;
+  }
+
+  @include breakpoint($medium-min) {
+    bottom: 0;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    // z-index: 100;
+  }
+}
+
+.thumbnails {
+
+  @include breakpoint($small-min $small-max) {
+    padding: 10%;
+  }
+
+  @include breakpoint($medium-min) {
+    padding: 4px 0 0 4px;
+  }
+}
+
+.liveWrap {
+  @include breakpoint($small-min $medium-max) {
+    display: none;
+  }
+
+  iframe {
+    border: 0;
+    display: block;
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+  }
+}

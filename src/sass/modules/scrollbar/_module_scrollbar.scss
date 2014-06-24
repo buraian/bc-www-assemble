@@ -1,0 +1,49 @@
+// Scrollbar
+
+// Perfect Scrollbar
+.ps-container .ps-scrollbar-x-rail {
+  bottom: 0;
+}
+
+.ps-container .ps-scrollbar-y-rail {
+  right: 0;
+}
+
+.ps-container .ps-scrollbar-x-rail,
+.ps-container .ps-scrollbar-y-rail {
+  border-radius: 0;
+  opacity: 0;
+  filter: alpha(opacity = 0);
+}
+
+.ps-container:hover .ps-scrollbar-x-rail,
+.ps-container.hover .ps-scrollbar-x-rail,
+.ps-container:hover .ps-scrollbar-y-rail,
+.ps-container.hover .ps-scrollbar-y-rail {
+  opacity: 1;
+  filter: alpha(opacity = 100);
+}
+
+.ps-container .ps-scrollbar-x-rail:hover,
+.ps-container .ps-scrollbar-x-rail.hover,
+.ps-container .ps-scrollbar-y-rail:hover,
+.ps-container .ps-scrollbar-y-rail.hover,
+.ps-container .ps-scrollbar-x-rail.in-scrolling,
+.ps-container .ps-scrollbar-y-rail.in-scrolling {
+  background-color: hsl($hue, $sat, 20%);
+  opacity: 1;
+  filter: alpha(opacity = 100);
+}
+
+.ps-container .ps-scrollbar-x,
+.ps-container .ps-scrollbar-y {
+  background-color: hsl($hue, $sat, 30%);
+  border-radius: 0;
+}
+
+.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x,
+.ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x,
+.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y,
+.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y {
+  background-color: hsl($hue, $sat, 40%);
+}

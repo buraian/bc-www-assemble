@@ -1,0 +1,8 @@
+// Functions
+
+$min-tile-dimension: 60px;
+$gutter: 4px;
+
+@function tile-size($n) {
+  @return $n * $min-tile-dimension + ($n - 1) * $gutter;
+}

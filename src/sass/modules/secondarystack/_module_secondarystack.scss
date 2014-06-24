@@ -1,0 +1,130 @@
+// Secondary Stack
+
+@import 'mixins';
+@import 'extends';
+@import 'functions';
+
+.secondaryStack {
+  background-color: hsl($hue, $sat, 17%);
+  color: hsl($hue, $sat, 40%);
+  float: left;
+  padding: 0;
+  width: 100%;
+
+  display: none;
+
+  @include breakpoint($small-min) {
+    margin-bottom: 5%;
+  }
+
+  @include breakpoint($medium-min) {
+    border-bottom: 1px solid hsl($hue, $sat, 15%);
+    margin: 0 0 1px 250px;
+  }
+
+  @include breakpoint($large-min) {}
+
+  @include breakpoint($xlarge-min) {}
+
+  @include breakpoint($xxlarge-min) {
+    border-right: 1px solid hsl($hue, $sat, 15%);
+    bottom: 0;
+    height: auto;
+    left: 250px;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    width: 250px;
+  }
+
+  header,
+  nav,
+  section,
+  footer {
+    display: block;
+    float: left;
+    width: 100%;
+
+    @include breakpoint($small-min) {}
+
+    @include breakpoint($medium-min) {}
+
+    @include breakpoint($large-min) {}
+
+    @include breakpoint($xlarge-min) {}
+
+    @include breakpoint($xxlarge-min) {}
+  }
+
+  header {
+    padding: 0 12px;
+
+    @include breakpoint($small-min) {}
+
+    @include breakpoint($medium-min) {}
+
+    @include breakpoint($large-min) {}
+
+    @include breakpoint($xlarge-min) {}
+
+    @include breakpoint($xxlarge-min) {}
+  }
+
+  h2 {
+    line-height: 1;
+    padding: 10px 0;
+
+    @include breakpoint($small-min) {}
+
+    @include breakpoint($medium-min) {}
+
+    @include breakpoint($large-min) {}
+
+    @include breakpoint($xlarge-min) {}
+
+    @include breakpoint($xxlarge-min) {
+      border-bottom: 1px solid hsl($hue, $sat, 15%);
+      height: 115px;
+      line-height: 1;
+      margin: 0 0 0 -.1em;
+      padding: 25px 0 0;
+    }
+
+    &,
+    a {
+      color: hsl($hue, $sat, 45%);
+      font-family: $header-special-font-stack;
+      font-size: 60px;
+      font-weight: $normal;
+      text-transform: none;
+
+      @include breakpoint($small-min) {}
+
+      @include breakpoint($medium-min) {}
+
+      @include breakpoint($large-min) {}
+
+      @include breakpoint($xlarge-min) {}
+
+      @include breakpoint($xxlarge-min) {}
+
+      &:hover {
+        color: hsl($hue, $sat, 50%);
+
+        @include breakpoint($small-min) {}
+
+        @include breakpoint($medium-min) {}
+
+        @include breakpoint($large-min) {}
+
+        @include breakpoint($xlarge-min) {}
+
+        @include breakpoint($xxlarge-min) {}
+      }
+    }
+  }
+}
+
+
+
+

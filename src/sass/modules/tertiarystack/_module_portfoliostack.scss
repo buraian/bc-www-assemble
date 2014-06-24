@@ -1,0 +1,200 @@
+// Portfolio Stack
+
+@import 'mixins';
+@import 'extends';
+@import 'functions';
+
+.portfolioStack {
+  background-color: hsl($hue, $sat, 17%);
+  color: hsl($hue, $sat, 50%);
+  font-size: 13px;
+  overflow: hidden;
+  padding: 0 35px 20px;
+  width: 100%;
+
+  @include breakpoint($small-min $small-max) {
+    float: left;
+    padding: 0 10% 10%;
+  }
+
+  @include breakpoint($medium-min) {
+    bottom: 0;
+    height: auto;
+    left: auto;
+    max-width: 250px;
+    position: fixed;
+    top: 0;
+  }
+
+  a.offCanvasToggle {
+    margin-left: -10px;
+    margin-top: 6px;
+  }
+
+  header,
+  nav,
+  section {
+    border-top: 1px solid hsl($hue, $sat, 27%);
+    float: left;
+    width: 100%;
+  }
+
+  header {
+    border-top: 0;
+  }
+
+  .section {
+    background-color: hsl($hue, $sat, 50%);
+    color: hsl($hue, $sat, 15%);
+    font-size: 12px;
+    font-weight: $bold;
+    padding: 0.6em 0.8em;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+
+    @include breakpoint($small-min $medium-max) {
+      right: 10%;
+    }
+
+    @include breakpoint($large-min) {
+      right: 35px;
+    }
+  }
+
+  .tag {
+    color: hsl($hue, $sat, 45%);
+    font-family: $header-font-stack;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    color: hsl($hue, $sat, 85%);
+    font-family: $base-font-stack;
+    font-size: 30px;
+    font-weight: $normal;
+    text-transform: none;
+  }
+
+  .description {
+    border-top: 0;
+  }
+
+  .metaData {
+    float: left;
+    width: 100%;
+
+    dl,
+    dt,
+    dd {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    dl {
+      border-top: 1px dotted hsl($hue, $sat, 27%);
+      float: left;
+      padding: 0.4em 0 1em;
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      dt {
+        color: hsl($hue, $sat, 40%);
+        font-family: $header-font-stack;
+        font-size: 9px;
+        font-weight: $normal;
+        text-transform: uppercase;
+
+        &:after {
+          content: "\A";
+          white-space: pre;
+        }
+      }
+
+      dd {
+        color: hsl($hue, $sat, 85%);
+        font-size: $base-font-size;
+      }
+    }
+  }
+
+  nav.tabs {
+    &,
+    & ul,
+    & ul li,
+    & ul li a {
+      display: block;
+      float: left;
+      line-height: 1.2;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    & {
+      border-top: 0;
+      margin-top: 10px;
+    }
+
+    ul {
+
+      li {
+        margin-bottom: 3px;
+        text-transform: uppercase;
+
+        a,
+        div {
+          border-bottom: 1px solid hsl($hue, $sat, 50%);
+          border-left: 3px solid hsl($hue, $sat, 50%);
+          color: hsl($hue, $sat, 75%);
+          padding: 0.6em 0.8em;
+          position: relative;
+
+          small {
+            color: hsl($hue, $sat, 40%);
+            font-size: 10px;
+            text-transform: none;
+            font-weight: $normal;
+          }
+
+          &:after {
+            border: 10px solid transparent;
+            content: '\0020';
+            height: 0;
+            position: absolute;
+            width: 0;
+
+            @include breakpoint($small-min $small-max) {
+              border-top-color: hsl(0, 0%, 50%);
+              margin-top: -5px;
+              right: 10px;
+              top: 50%;
+            }
+
+            @include breakpoint($medium-min) {
+              border-left-color: hsl(0, 0%, 50%);
+              bottom: -10px;
+              right: -20px;
+            }
+          }
+        }
+
+        a {
+
+          &:hover {
+            background-color: hsl($hue, $sat, 20%);
+          }
+        }
+
+        div {
+          border-color: hsl(0, 0%, 30%);
+          color: hsl(0, 0%, 30%);
+        }
+      }
+    }
+  }
+}
