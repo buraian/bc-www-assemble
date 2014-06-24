@@ -4,7 +4,8 @@
 @import 'buttons/extends';
 @import 'buttons/functions';
 
-a.button-1 {
+a.button-1,
+button.button-1 {
   border: 1px solid hsl($hue, $sat, 85%);
   color: hsl($hue, $sat, 85%);
   display: block;

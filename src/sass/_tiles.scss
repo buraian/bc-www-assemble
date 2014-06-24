@@ -130,7 +130,7 @@ article.teaser {}
   }
 
   &:hover .back {
-    transform: perspective(1300px) rotateY(0deg);
+    transform: perspective(1300px) rotateY(0);
   }
 }
 
@@ -145,17 +145,6 @@ article.teaser {}
     height: tile-size(3);
     width: tile-size(3);
   }
-
-  // .colorCodeOverlay {
-  //   background-color: hsl($hue, $sat, 65%);
-  //   bottom: 0;
-  //   height: 0;
-  //   left: 0;
-  //   position: absolute;
-  //   transition: height .3s;
-  //   width: 100%;
-  //   z-index: 101;
-  // }
 
   .effectOverlay {
     background-image: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .3));
@@ -172,67 +161,64 @@ article.teaser {}
     width: auto;
     z-index: 100;
 
-    &:before {
-      bottom: 0;
-      color: hsl($hue, $sat, 100%);
-      content: '\f2f5';
-      // content: '\f189';
-      font-family: $ionicons-font;
-      font-weight: $normal;
-      height: auto;
-      left: 0.1em;
-      opacity: 0;
-      position: absolute;
-      right: 0;
-      text-align: center;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-      transition: opacity 0.3s;
-      top: 0.5em;
-      width: auto;
+    &:hover {
 
-      @include breakpoint($small-min $small-max) {
-        font-size: 2em;
+      img {
+
+        @include breakpoint($medium-min) {
+          opacity: 1 !important;
+        }
       }
+    }
+
+    // &:before {
+    //   bottom: 0;
+    //   color: hsl($hue, $sat, 100%);
+    //   // content: '\f189';
+    //   content: '\f2f5';
+    //   font-family: $ionicons-font;
+    //   font-weight: $normal;
+    //   height: auto;
+    //   left: 0.1em;
+    //   opacity: 0;
+    //   position: absolute;
+    //   right: 0;
+    //   text-align: center;
+    //   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+    //   transition: opacity 0.3s;
+    //   top: 0.5em;
+    //   width: auto;
+
+    //   @include breakpoint($small-min $small-max) {
+    //     font-size: 2em;
+    //   }
+
+    //   @include breakpoint($medium-min) {
+    //     font-size: 5em;
+    //   }
+    // }
+
+    img {
+      display: block;
+      float: left;
+      height: auto;
+      margin-bottom: 0;
+      margin-left: -25%;
+      margin-right: 0;
+      margin-top: -10%;
+      min-height: 100%;
+      width: 150%;
 
       @include breakpoint($medium-min) {
-        font-size: 5em;
+        transition: opacity 0.3s;
+        opacity: 0.5;
       }
-    }
-  }
-
-  &:hover .effectOverlay {
-
-    &:before {
-      opacity: 0.5;
-    }
-  }
-
-  img {
-    display: block;
-    float: left;
-    height: auto;
-    margin-bottom: 0;
-    margin-left: -25%;
-    margin-right: 0;
-    margin-top: -10%;
-    min-height: 100%;
-    width: 150%;
-
-    @include breakpoint($medium-min) {
-      transition: opacity .3s;
-      opacity: .5;
-    }
-  }
-
-  &:hover img {
-
-    @include breakpoint($medium-min) {
-      opacity: 1 !important;
     }
   }
 }
 
 .portfolio .tile.thumbnail {
+
   img {
 
     @include breakpoint($small-min) {
@@ -246,29 +232,6 @@ article.teaser {}
   border: 3px solid hsl(0, 0%, 50%);
   color: hsl($hue, $sat, 50%);
   padding: 1.4em 0.8em 0.8em;
-  // background-color: hsl(60deg, 100%, 80%);
-  // background-image:
-  //   radial-gradient(
-  //     circle,
-  //     rgba(0, 0, 0, 0) 50%,
-  //     rgba(0, 0, 0, 0.1)
-  //   ),
-  //   linear-gradient(
-  //     90deg,
-  //     transparent 1.5em,
-  //     rgba(0, 0, 0, .3) 1.5em,
-  //     rgba(0, 0, 0, .3) 1.6em,
-  //     transparent 1.6em
-  //   ),
-  //   linear-gradient(
-  //     rgba(0, 0, 0, .1) .1em,
-  //     transparent 0.1em
-  //   );
-  // background-position: 0 -0.1em;
-  // background-size: 100%, 100%, 1.5em;
-  // color: hsl($hue, $sat, 15%);
-  // font-family: $header-special-font-stack;
-  // padding: $base-line-height + 0em $base-line-height + 0em $base-line-height + 0em $base-line-height + 0.5em;
 
   @include breakpoint($small-min $small-max) {
     font-size: 40px;
@@ -388,24 +351,18 @@ article.teaser:hover {
       }
     }
 
-    // .back {
-    //   transform: perspective(1300px) rotateY(0deg);
-    // }
+    .back {
+      // transform: perspective(1300px) rotateY(0);
+    }
   }
 
   .tile.thumbnail {
 
-    // .colorCodeOverlay {
-    //   height: 15%;
-    // }
-
     img {
 
       @include breakpoint($medium-min) {
-        transition: opacity .3s;
-        opacity: 1 !important;
+        opacity: 0.7;
       }
     }
   }
 }
-

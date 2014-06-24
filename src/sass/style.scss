@@ -11,9 +11,10 @@
 @import 'buttons';
 @import 'forms';
 @import 'tiles';
-@import 'vendor';
+
 @import 'layouts/root/layout_root';
 @import 'layouts/portfolio/layout_portfolio';
+
 @import 'modules/primarystack/module_primarystack';
 @import 'modules/primarystack/module_mobilestack';
 @import 'modules/primarystack/module_primarynav';
@@ -23,4 +24,5 @@
 @import 'modules/tertiarystack/module_portfoliostack';
 @import 'modules/tertiarystack/module_sketchesanddrawingsstack';
 @import 'modules/offcanvaswrap/module_offcanvaswrap';
-@import 'modules/scrollbar/module_scrollbar';
+
+@import 'vendor/perfect-scrollbar/vendor_perfect-scrollbar';

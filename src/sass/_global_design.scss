@@ -25,6 +25,11 @@
   padding: 0.2em 0;
 }
 
+a[rel=enlarge],
+a[rel=enlarge] img {
+  cursor: zoom-in;
+}
+
 body {
   background-color: hsl($hue, $sat, 100%);
   color: hsl($hue, $sat, 15%);
