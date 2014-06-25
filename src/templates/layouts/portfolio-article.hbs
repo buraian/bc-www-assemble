@@ -1,7 +1,7 @@
 ---
 layout: default.hbs
 ---
-<article id="article" class="article">
+<article id="article" class="article full">
   <div id="tertiaryStack" class="portfolioStack">
     <a class="offCanvasToggle" href="#"></a>
     <header>
@@ -96,8 +96,9 @@ layout: default.hbs
         {{#each images}}
           <figure class="tile thumbnail">
             <div class="colorCodeOverlay"></div>
-            <a class="effectOverlay" href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} rel="enlarge"></a>
-            <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.description}}">
+            <a class="effectOverlay" href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} rel="enlarge">
+              <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.description}}">
+            </a>
           </figure>
         {{/each}}
       </section>

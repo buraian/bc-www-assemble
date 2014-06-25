@@ -146,57 +146,24 @@ article.teaser {}
     width: tile-size(3);
   }
 
-  .effectOverlay {
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .3));
-    background-position: center;
-    background-size: 100%;
-    bottom: 0;
-    box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, .1);
-    height: auto;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: 0.3s;
-    width: auto;
-    z-index: 100;
+  a[rel="enlarge"] {
 
-    &:hover {
-
-      img {
-
-        @include breakpoint($medium-min) {
-          opacity: 1 !important;
-        }
-      }
+    &:before {
+      background-image: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .2));
+      background-position: center;
+      background-size: 100%;
+      bottom: 0;
+      box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, .1);
+      content: '\0020';
+      height: auto;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: 0.3s;
+      width: auto;
+      z-index: 1;
     }
-
-    // &:before {
-    //   bottom: 0;
-    //   color: hsl($hue, $sat, 100%);
-    //   // content: '\f189';
-    //   content: '\f2f5';
-    //   font-family: $ionicons-font;
-    //   font-weight: $normal;
-    //   height: auto;
-    //   left: 0.1em;
-    //   opacity: 0;
-    //   position: absolute;
-    //   right: 0;
-    //   text-align: center;
-    //   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-    //   transition: opacity 0.3s;
-    //   top: 0.5em;
-    //   width: auto;
-
-    //   @include breakpoint($small-min $small-max) {
-    //     font-size: 2em;
-    //   }
-
-    //   @include breakpoint($medium-min) {
-    //     font-size: 5em;
-    //   }
-    // }
 
     img {
       display: block;
@@ -214,15 +181,25 @@ article.teaser {}
         opacity: 0.5;
       }
     }
+
+    &:hover {
+
+      img {
+
+        @include breakpoint($medium-min) {
+          opacity: 1 !important;
+        }
+      }
+    }
   }
 }
 
-.portfolio .tile.thumbnail {
+.full .tile.thumbnail {
 
   img {
 
-    @include breakpoint($small-min) {
-      opacity: 1;
+    @include breakpoint($medium-min) {
+      opacity: 0.7;
     }
   }
 }
