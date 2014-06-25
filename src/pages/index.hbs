@@ -24,7 +24,7 @@ title: Home
       {{#each data.images}}
         <figure class="tile thumbnail">
           {{!-- <div class="colorCodeOverlay"></div> --}}
-          <a class="effectOverlay" href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} rel="enlarge">
+          <a href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} rel="enlarge">
             <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.description}}">
           </a>
         </figure>
