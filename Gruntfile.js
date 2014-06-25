@@ -10,9 +10,9 @@
 
 // # Globbing
 // for performance reasons we're only matching one level down:
-// '<%= config.src %>/templates/pages/{,*/}*.hbs'
+// '<%= config.src %>/pages/{,*/}*.hbs'
 // use this if you want to match all subfolders:
-// '<%= config.src %>/templates/pages/**/*.hbs'
+// '<%= config.src %>/pages/**/*.hbs'
 
 module.exports = function(grunt) {
 
@@ -45,6 +45,17 @@ module.exports = function(grunt) {
         files: ['<%= config.src %>/{content,data,templates}/{,**/}*.{md,hbs,yml}'],
         tasks: ['assemble']
       },
+      compass: {
+        files: ['<%= config.src %>/sass/{,**/}*.scss'],
+        tasks: ['compass', 'newer:autoprefixer', 'newer:cssmin']
+      },
+      csslint: {
+        files: ['<%= config.dist %>/assets/css/style.css'],
+        tasks: ['newer:csslint']
+      },
+      grunt: {
+        files: ['Gruntfile.js']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -55,14 +66,6 @@ module.exports = function(grunt) {
           '<%= config.dist %>/assets/{,*/}*.js',
           '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
-      },
-      compass: {
-        files: ['<%= config.src %>/sass/{,**/}*.scss'],
-        tasks: ['compass', 'newer:autoprefixer', 'newer:cssmin']
-      },
-      csslint: {
-        files: ['<%= config.dist %>/assets/css/style.css'],
-        tasks: ['newer:csslint']
       },
       uglify: {
         files: ['<%= config.dist %>/assets/js/script.js'],
@@ -119,7 +122,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.src %>/templates/pages',
+            cwd: '<%= config.src %>/pages',
             src: ['**/*.hbs'],
             dest: '<%= config.dist %>/'
           }
@@ -136,13 +139,13 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.src %>/templates/pages',
+            cwd: '<%= config.src %>/pages',
             src: ['portfolio.hbs'],
             dest: '<%= config.dist %>/'
           },
           {
             expand: true,
-            cwd: '<%= config.src %>/templates/pages/portfolio',
+            cwd: '<%= config.src %>/pages/portfolio',
             src: ['*.hbs'],
             dest: '<%= config.dist %>/portfolio/',
             ext: '.html'
@@ -498,18 +501,27 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('assemble'); // ~0.4.0
   // grunt.loadNpmTasks('grunt-assemble'); // ~0.5.0
-  grunt.loadNpmTasks('grunt-newer');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-responsive-images');
+
+  grunt.registerTask('default', [
+    'server'
+  ]);
+
+  grunt.registerTask('build', [
+    'clean',
+    'assemble'
+  ]);
 
   grunt.registerTask('server', [
     'clean',
@@ -523,14 +535,4 @@ module.exports = function(grunt) {
     'connect:livereload',
     'watch'
   ]);
-
-  grunt.registerTask('build', [
-    'clean',
-    'assemble'
-  ]);
-
-  grunt.registerTask('default', [
-    'server'
-  ]);
-
 };
