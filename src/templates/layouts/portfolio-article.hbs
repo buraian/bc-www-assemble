@@ -66,12 +66,13 @@ layout: default.hbs
     {{/if}}
     <nav class="tabs">
       <ul>
-        <li{{#unless liveURL}} class="off"{{/unless}}>
+        <li>
           {{#if liveURL}}
-            <a href="#liveWrap">Live Preview<br><small>All systems go</small></a>
+            <a class="hideMedium" href="#liveWrap">Live Preview<br><small>All systems go</small></a>
+            <div class="showMedium">Live Preview<br><small>Not available on low-resolution devices</small></div>
           {{/if}}
           {{#unless liveURL}}
-            <div>Live Preview<br><small>Unavailable on current device size</small></div>
+            <div>Live Preview<br><small>Not available for this project</small></div>
           {{/unless}}
         </li>
         <li{{#unless images}} class="off"{{/unless}}>
@@ -79,13 +80,13 @@ layout: default.hbs
             <a href="#thumbnails">Screenshots<br><small>Click to enlarge</small></a>
           {{/if}}
           {{#unless images}}
-            <div>Thumbnails<br><small>Unavailable</small></div>
+            <div>Thumbnails<br><small>None available</small></div>
           {{/unless}}
         </li>
       </ul>
     </nav>
   </div>
-  <div class="views tabs">
+  <div class="views">
     {{#if liveURL}}
       <section id="liveWrap" class="liveWrap">
         <iframe id="live" class="live" src="{{liveURL}}"></iframe>
@@ -96,7 +97,7 @@ layout: default.hbs
         {{#each images}}
           <figure class="tile thumbnail">
             <div class="colorCodeOverlay"></div>
-            <a class="effectOverlay" href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} rel="enlarge">
+            <a class="effectOverlay" href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} data-lightbox-gallery="0" rel="enlarge">
               <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.description}}">
             </a>
           </figure>

@@ -66,6 +66,7 @@ article.teaser {}
     color: hsl($hue, $sat, 80%);
     padding: 28% 10% 10%;
     transform: perspective(1300px);
+    z-index: 1;
 
     .section {
       background-color: hsl($hue, $sat, 50%);
@@ -110,6 +111,7 @@ article.teaser {}
     overflow: hidden;
     padding: 10%;
     transform: perspective(1300px) rotateY(180deg);
+    z-index: 0;
 
     p {
       font-weight: $normal;
@@ -127,10 +129,12 @@ article.teaser {}
 
   &:hover .front {
     transform: perspective(1300px) rotateY(180deg);
+    z-index: 0;
   }
 
   &:hover .back {
     transform: perspective(1300px) rotateY(0);
+    z-index: 1;
   }
 }
 
@@ -208,7 +212,7 @@ article.teaser {}
   background-color: hsl($hue, $sat, 95%);
   border: 3px solid hsl(0, 0%, 50%);
   color: hsl($hue, $sat, 50%);
-  padding: 1.4em 0.8em 0.8em;
+  padding: 1.2em 0.8em 0.8em;
 
   @include breakpoint($small-min $small-max) {
     font-size: 40px;
@@ -233,6 +237,17 @@ article.teaser {}
     display: none;
     font-size: 15px;
     font-weight: $normal;
+  }
+
+  p {
+
+    &:first-letter {
+      display: block;
+      float: left;
+      font-family: $accent-font-stack;
+      font-size: 118px;
+      margin: 0 0.2em -0.7em 0;
+    }
   }
 }
 

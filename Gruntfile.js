@@ -10,9 +10,9 @@
 
 // # Globbing
 // for performance reasons we're only matching one level down:
-// '<%= config.src %>/pages/{,*/}*.hbs'
+// '<%= config.src %>/content/pages/{,*/}*.hbs'
 // use this if you want to match all subfolders:
-// '<%= config.src %>/pages/**/*.hbs'
+// '<%= config.src %>/content/pages/**/*.hbs'
 
 module.exports = function(grunt) {
 
@@ -67,8 +67,16 @@ module.exports = function(grunt) {
           '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       },
+      imagemin: {
+        files: ['<%= config.src %>/assets/images/{,**/}*.{png,jpg,gif}'],
+        tasks: ['newer:svgmin']
+      },
+      svgmin: {
+        files: ['<%= config.src %>/assets/images/{,**/}*.svg'],
+        tasks: ['newer:svgmin']
+      },
       uglify: {
-        files: ['<%= config.dist %>/assets/js/script.js'],
+        files: ['<%= config.src %>/assets/js/script.js'],
         tasks: ['newer:uglify']
       }
     },
@@ -122,7 +130,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.src %>/pages',
+            cwd: '<%= config.src %>/content/pages',
             src: ['**/*.hbs'],
             dest: '<%= config.dist %>/'
           }
@@ -139,13 +147,13 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.src %>/pages',
+            cwd: '<%= config.src %>/content/pages',
             src: ['portfolio.hbs'],
             dest: '<%= config.dist %>/'
           },
           {
             expand: true,
-            cwd: '<%= config.src %>/pages/portfolio',
+            cwd: '<%= config.src %>/content/pages/portfolio',
             src: ['*.hbs'],
             dest: '<%= config.dist %>/portfolio/',
             ext: '.html'
@@ -366,11 +374,49 @@ module.exports = function(grunt) {
     uglify: {
       files: {
         expand: true,
-        cwd: '<%= config.dist %>/assets/js/',
+        cwd: '<%= config.src %>/assets/js/',
         src: ['**/*.js', '!**/*.min.js'],
         dest: '<%= config.dist %>/assets/js/',
         ext: '.min.js',
         flatten: false
+      }
+    },
+
+    imagemin: {
+      options: {
+        optimizationLevel: 3
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.src %>/assets/images/',
+            src: ['**/*.{png,jpg,gif}'],
+            dest: '<%= config.dist %>/assets/images/'
+          }
+        ]
+      }
+    },
+
+    svgmin: {
+      options: {
+        plugins: [
+          { removeViewBox: true },
+          { removeUselessStrokeAndFill: true },
+          { removeEmptyAttrs: true }
+        ]
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.src %>/assets/images/',
+            src: ['**/*.svg'],
+            dest: '<%= config.dist %>/assets/images/',
+            ext: '.min.svg'
+
+          }
+        ]
       }
     },
 
@@ -513,6 +559,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-responsive-images');
+  grunt.loadNpmTasks('grunt-svgmin');
 
   grunt.registerTask('default', [
     'server'
@@ -532,6 +579,9 @@ module.exports = function(grunt) {
     'newer:csslint',
     'newer:cssmin',
     'newer:uglify',
+    'newer:imagemin',
+    'newer:svgmin',
+    // 'newer:responsive_images',
     'connect:livereload',
     'watch'
   ]);

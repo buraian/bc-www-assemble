@@ -1,4 +1,4 @@
-// Typography
+ // Typography
 
 // @font-face {
 //   font-family: $entypo-font;
@@ -17,9 +17,9 @@
   font-family: $ionicons-font;
   src: url('#{$webfont-directory}/ionicons.eot');
   src: url('#{$webfont-directory}/ionicons.eot#iefix') format('embedded-opentype'),
-      url('#{$webfont-directory}/ionicons.ttf') format('truetype'),
-      url('#{$webfont-directory}/ionicons.woff') format('woff'),
-      url('#{$webfont-directory}/ionicons.svg#Ionicons') format('svg');
+       url('#{$webfont-directory}/ionicons.ttf') format('truetype'),
+       url('#{$webfont-directory}/ionicons.woff') format('woff'),
+       url('#{$webfont-directory}/ionicons.svg#Ionicons') format('svg');
   font-weight: normal !important;
   font-style: normal !important;
   -webkit-font-smoothing: antialiased;

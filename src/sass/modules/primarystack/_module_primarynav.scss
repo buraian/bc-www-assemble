@@ -10,9 +10,6 @@
   text-transform: uppercase;
 
   ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 
     &,
     & li,
@@ -24,12 +21,15 @@
       width: 100%;
     }
 
+    & {
+      list-style-type: none;
+    }
+
     li {
       margin: 0.1em 0;
 
       &,
       a {
-        color: hsl($hue, $sat, 70%);
         font-size: 13px;
         line-height: 1;
         position: relative;
@@ -37,10 +37,10 @@
       }
 
       a {
-        // cursor: pointer;
 
         &,
         &:visited {
+          color: hsl($hue, $sat, 70%);
           padding: 0.5em 0;
           width: 100%;
 
@@ -54,7 +54,7 @@
             position: absolute;
             right: 0;
             top: 0;
-            transition: 0.3s;
+            transition: 0.3s ease-out;
             width: auto;
             z-index: -1;
           }
@@ -75,6 +75,7 @@
         > a,
         > a:visited {
           color: hsl($hue, $sat, 15%);
+          transition: color 0.3s ease-in;
 
           &:after {
             background-color: hsl($hue, $sat, 30%);
