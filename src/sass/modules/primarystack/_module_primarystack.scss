@@ -17,6 +17,7 @@
   top: 0;
   transition: transform 1s ease-out;
   width: 250px;
+  z-index: 10001;
 
   a {
     &,
@@ -354,11 +355,12 @@
 }
 
 .offcanvasactive .primaryStack {
-  transform: translate3d(250px, 0, 0);
-  transition: transform .5s ease-in;
+  //transform: translate3d(250px, 0, 0);
+  //transition: transform .5s ease-in;
+  left: 0;
+  transition: 0.5s ease-in;
 
   @include breakpoint($small-min $medium-max) {
     box-shadow: inset -20px 0 20px -20px hsl($hue, $sat, 0%);
   }
 }
-

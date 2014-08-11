@@ -77,11 +77,13 @@ a.offCanvasToggle {
 }
 
 .offcanvasactive .offCanvasWrap {
-  transform: translate3d(250px, 0, 0);
-  transition: transform .5s ease-in;
+  //transform: translate3d(250px, 0, 0);
+  //transition: transform .5s ease-in;
+  left: 250px;
+  transition: 0.5s ease-in;
 
   .exitOffCanvas {
-    opacity: .8;
+    opacity: 0.8;
     visibility: visible;
   }
 }
