@@ -362,6 +362,7 @@ module.exports = function(grunt) {
             src: ['**/*.css', '!**/*.min.css'],
             dest: '<%= config.dist %>/assets/css/',
             ext: '.min.css',
+            extDot: 'last',
             flatten: false
           }
         ]
@@ -372,13 +373,18 @@ module.exports = function(grunt) {
      * Minify all JS files
      */
     uglify: {
-      files: {
-        expand: true,
-        cwd: '<%= config.src %>/assets/js/',
-        src: ['**/*.js', '!**/*.min.js'],
-        dest: '<%= config.dist %>/assets/js/',
-        ext: '.min.js',
-        flatten: false
+      all: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.dist %>/assets/js/',
+            src: ['**/*.js', '!**/*.min.js'],
+            dest: '<%= config.dist %>/assets/js/',
+            ext: '.min.js',
+            extDot: 'last',
+            flatten: false
+          }
+        ]
       }
     },
 
