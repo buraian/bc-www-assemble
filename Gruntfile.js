@@ -166,16 +166,16 @@ module.exports = function(grunt) {
      * Copy Bower Components to destinations
      */
     copy: {
-      entypo: {
-        files: [
-          {
-            expand: true,
-            cwd: '<%= config.bower %>/entypo/font',
-            src: '**/*.{eot,svg,ttf,woff}',
-            dest: '<%= config.dist %>/assets/fonts/'
-          }
-        ]
-      },
+      // entypo: {
+      //   files: [
+      //     {
+      //       expand: true,
+      //       cwd: '<%= config.bower %>/entypo/font',
+      //       src: '**/*.{eot,svg,ttf,woff}',
+      //       dest: '<%= config.dist %>/assets/fonts/'
+      //     }
+      //   ]
+      // },
       fastclick: {
         files: [
           {
@@ -248,7 +248,6 @@ module.exports = function(grunt) {
           }
         ]
       },
-
       modernizr: {
         files: [
           {
@@ -552,7 +551,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('assemble'); // ~0.4.0
-  // grunt.loadNpmTasks('grunt-assemble'); // ~0.5.0
+  // grunt.loadNpmTasks('grunt-assemble'); // ~0.6.0
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compass');
