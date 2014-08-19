@@ -163,19 +163,13 @@ module.exports = function(grunt) {
     },
 
     /**
-     * Copy Bower Components to destinations
+     * Copy
      */
     copy: {
-      // entypo: {
-      //   files: [
-      //     {
-      //       expand: true,
-      //       cwd: '<%= config.bower %>/entypo/font',
-      //       src: '**/*.{eot,svg,ttf,woff}',
-      //       dest: '<%= config.dist %>/assets/fonts/'
-      //     }
-      //   ]
-      // },
+
+      /**
+       * Bower Components to destinations
+       */
       fastclick: {
         files: [
           {
@@ -303,6 +297,20 @@ module.exports = function(grunt) {
             cwd: '<%= config.bower %>/perfect-scrollbar/min',
             src: 'perfect-scrollbar-0.4.10.with-mousewheel.min.js',
             dest: '<%= config.dist %>/assets/js/vendor/perfect-scrollbar/'
+          }
+        ]
+      },
+
+      /**
+       * Favicons (src to dist)
+       */
+      favicons: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.src %>/files/favicons',
+            src: '*',
+            dest: '<%= config.dist %>/'
           }
         ]
       }
