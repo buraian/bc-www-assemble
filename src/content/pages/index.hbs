@@ -4,6 +4,19 @@ title: Home
 ---
 {{#each pages}}
 
+  {{! About }}
+  {{#is data.section "about"}}
+
+    <article class="teaser">
+      <header class="tile {{data.section}}">
+        <span class="section">{{data.section}}</span>
+        <h3>{{data.title}}</h3>
+        <p>{{data.description}}</p>
+      </header>
+    </article>
+
+  {{/is}}
+
   {{! Portfolio }}
   {{#is data.section "portfolio"}}
 
@@ -43,19 +56,6 @@ title: Home
           <h3>{{data.title}}</h3>
           <p>{{data.description}}</p>
         </div>
-      </header>
-    </article>
-
-  {{/is}}
-
-  {{! About }}
-  {{#is data.section "about"}}
-
-    <article class="teaser">
-      <header class="tile {{data.section}}">
-        <span class="section">{{data.section}}</span>
-        <h3>{{data.title}}</h3>
-        <p>{{data.description}}</p>
       </header>
     </article>
 
