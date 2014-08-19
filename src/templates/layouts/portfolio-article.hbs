@@ -12,67 +12,77 @@ layout: default.hbs
     <section class="description">
       <p>{{description}}</p>
     </section>
+
     {{#if metadata}}
-    <section id="metaData" class="metaData">
-      {{#if metadata.designCredit}}
-        <dl>
-          <dt>Design Credit</dt>
-          {{#each metadata.designCredit}}
-            <dd>{{.}}</dd>
-          {{/each}}
-        </dl>
-      {{/if}}
-      {{#if metadata.buildCredit}}
-        <dl>
-          <dt>Build Credit</dt>
-          {{#each metadata.buildCredit}}
-            <dd>{{.}}</dd>
-          {{/each}}
-        </dl>
-      {{/if}}
-      {{#if metadata.typography}}
-        <dl>
-          <dt>Typography</dt>
-          {{#each metadata.typography}}
-            <dd>{{.}}</dd>
-          {{/each}}
-        </dl>
-      {{/if}}
-      {{#if metadata.dimensions}}
-        <dl>
-          <dt>Dimensions</dt>
-          {{#each metadata.dimensions}}
-            <dd>{{.}}</dd>
-          {{/each}}
-        </dl>
-      {{/if}}
-      {{#if metadata.client}}
-        <dl>
-          <dt>Client</dt>
-          {{#each metadata.client}}
-            <dd>{{.}}</dd>
-          {{/each}}
-        </dl>
-      {{/if}}
-      {{#if metadata.productionTime}}
-        <dl>
-          <dt>Production Time</dt>
-          {{#each metadata.productionTime}}
-            <dd>{{.}}</dd>
-          {{/each}}
-        </dl>
-      {{/if}}
-    </section>
+
+      <section id="metaData" class="metaData">
+
+        {{#if metadata.designCredit}}
+          <dl>
+            <dt>Design Credit</dt>
+            {{#each metadata.designCredit}}
+              <dd>{{.}}</dd>
+            {{/each}}
+          </dl>
+        {{/if}}
+
+        {{#if metadata.buildCredit}}
+          <dl>
+            <dt>Build Credit</dt>
+            {{#each metadata.buildCredit}}
+              <dd>{{.}}</dd>
+            {{/each}}
+          </dl>
+        {{/if}}
+
+        {{#if metadata.typography}}
+          <dl>
+            <dt>Typography</dt>
+            {{#each metadata.typography}}
+              <dd>{{.}}</dd>
+            {{/each}}
+          </dl>
+        {{/if}}
+
+        {{#if metadata.dimensions}}
+          <dl>
+            <dt>Dimensions</dt>
+            {{#each metadata.dimensions}}
+              <dd>{{.}}</dd>
+            {{/each}}
+          </dl>
+        {{/if}}
+
+        {{#if metadata.client}}
+          <dl>
+            <dt>Client</dt>
+            {{#each metadata.client}}
+              <dd>{{.}}</dd>
+            {{/each}}
+          </dl>
+        {{/if}}
+
+        {{#if metadata.productionTime}}
+          <dl>
+            <dt>Production Time</dt>
+            {{#each metadata.productionTime}}
+              <dd>{{.}}</dd>
+            {{/each}}
+          </dl>
+        {{/if}}
+      </section>
+
     {{/if}}
+
     <nav class="tabs">
       <ul>
         <li>
           {{#if liveURL}}
-            <a class="hideMedium" href="#liveWrap">Live Preview<br><small>All systems go</small></a>
-            <div class="showMedium">Live Preview<br><small>Not available on low-resolution devices</small></div>
+            <a href="#liveWrap">Live Preview<br><small>All systems go</small></a>
+            <div>Live Preview<br><small>Not available on low-resolution devices</small></div>
           {{/if}}
           {{#unless liveURL}}
-            <div>Live Preview<br><small>Not available for this project</small></div>
+            <div>Live Preview<br><small>No preview available</small></div>
           {{/unless}}
         </li>
         <li{{#unless images}} class="off"{{/unless}}>
@@ -80,19 +90,24 @@ layout: default.hbs
             <a href="#thumbnails">Screenshots<br><small>Click to enlarge</small></a>
           {{/if}}
           {{#unless images}}
-            <div>Thumbnails<br><small>None available</small></div>
+            <div>Screenshots<br><small>No screenshots available</small></div>
           {{/unless}}
         </li>
       </ul>
     </nav>
   </div>
   <div class="views">
+
     {{#if liveURL}}
+
       <section id="liveWrap" class="liveWrap">
         <iframe id="live" class="live" src="{{liveURL}}"></iframe>
       </section>
+
     {{/if}}
+
     {{#if images}}
+
       <section id="thumbnails" class="thumbnails">
         {{#each images}}
           <figure class="tile thumbnail">
@@ -103,6 +118,8 @@ layout: default.hbs
           </figure>
         {{/each}}
       </section>
+
     {{/if}}
+
   </div>
 </article>
