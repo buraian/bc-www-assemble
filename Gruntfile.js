@@ -168,7 +168,21 @@ module.exports = function(grunt) {
     copy: {
 
       /**
-       * Bower Components to destinations
+       * Bower Components to 'src'
+       */
+      foundation_scss: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.bower %>/foundation/scss/foundation',
+            src: '**/*',
+            dest: '<%= config.src %>/sass/vendor/foundation/'
+          }
+        ]
+      },
+
+      /**
+       * Bower Components to 'dist'
        */
       fastclick: {
         files: [
