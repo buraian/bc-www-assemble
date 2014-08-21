@@ -15,6 +15,7 @@
     });
 
 
+
     /**
      * Off Canvas Nav
      */
@@ -36,6 +37,7 @@
       $('.offCanvasToggle').toggleClass('active');
       e.preventDefault();
     });
+
 
 
     /**
@@ -64,6 +66,7 @@
     });
 
 
+
     /**
      * Primary Nav
      */
@@ -84,6 +87,7 @@
         $(this).parent('li').toggleClass('active');
       });
     });
+
 
 
     /**
@@ -145,4 +149,3 @@
   });
 
 }(jQuery, window));
-
