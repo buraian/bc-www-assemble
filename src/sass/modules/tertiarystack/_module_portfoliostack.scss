@@ -53,11 +53,11 @@
     text-transform: uppercase;
     top: 0;
 
-    @include breakpoint($small-min $medium-max) {
+    @include breakpoint($small-min $small-max) {
       right: 10%;
     }
 
-    @include breakpoint($large-min) {
+    @include breakpoint($medium-min) {
       right: 35px;
     }
   }
@@ -122,7 +122,7 @@
     }
   }
 
-  nav.tabs {
+  nav {
 
     &,
     & ul,
@@ -138,6 +138,7 @@
 
     & {
       border-top: 0;
+      margin-bottom: 15px;
       margin-top: 10px;
     }
 
@@ -146,6 +147,14 @@
       li {
         margin-bottom: 3px;
         text-transform: uppercase;
+
+        &.active {
+          background-color: hsl($hue, $sat, 20%);
+
+          a {
+            color: hsl($hue, $sat, 85%);
+          }
+        }
 
         a,
         div {
@@ -165,7 +174,7 @@
           }
 
           &:after {
-            border: 10px solid transparent;
+            border: 7px solid transparent;
             content: '\0020';
             height: 0;
             position: absolute;
@@ -180,8 +189,9 @@
 
             @include breakpoint($medium-min) {
               border-left-color: hsl(0, 0%, 50%);
-              bottom: -10px;
-              right: -20px;
+              margin-top: -7px;
+              right: 5px;
+              top: 50%;
             }
           }
         }
@@ -204,7 +214,7 @@
           }
 
           &:hover {
-            background-color: hsl($hue, $sat, 20%);
+            background-color: hsl($hue, $sat, 25%);
           }
         }
 

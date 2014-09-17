@@ -9,6 +9,27 @@ layout: default.hbs
       <span class="tag">{{page.tags}}</span>
       <h2>{{title}}</h2>
     </header>
+    <nav class="tabs">
+      <ul>
+        <li>
+          {{#if liveURL}}
+            <a href="#liveWrap" class="show-for-large-up">Live Preview<br><small>All systems go</small></a>
+            <a href="{{liveURL}}" class="hide-for-large-up" target="_blank">Launch<br><small>All systems go</small></a>
+          {{/if}}
+          {{#unless liveURL}}
+            <div>Live Preview<br><small>No preview available</small></div>
+          {{/unless}}
+        </li>
+        <li>
+          {{#if images}}
+            <a href="#thumbnails" class="default">Screenshots<br><small>Click to enlarge</small></a>
+          {{/if}}
+          {{#unless images}}
+            <div>Screenshots<br><small>No screenshots available</small></div>
+          {{/unless}}
+        </li>
+      </ul>
+    </nav>
     <section class="description">
       <p>{{description}}</p>
     </section>
@@ -74,33 +95,12 @@ layout: default.hbs
 
     {{/if}}
 
-    <nav class="tabs">
-      <ul>
-        <li>
-          {{#if liveURL}}
-            <a href="#liveWrap">Live Preview<br><small>All systems go</small></a>
-            <div>Live Preview<br><small>Not available on low-resolution devices</small></div>
-          {{/if}}
-          {{#unless liveURL}}
-            <div>Live Preview<br><small>No preview available</small></div>
-          {{/unless}}
-        </li>
-        <li{{#unless images}} class="off"{{/unless}}>
-          {{#if images}}
-            <a href="#thumbnails">Screenshots<br><small>Click to enlarge</small></a>
-          {{/if}}
-          {{#unless images}}
-            <div>Screenshots<br><small>No screenshots available</small></div>
-          {{/unless}}
-        </li>
-      </ul>
-    </nav>
   </div>
   <div class="views">
 
     {{#if liveURL}}
 
-      <section id="liveWrap" class="liveWrap">
+      <section id="liveWrap" class="liveWrap show-for-large-up">
         <iframe id="live" class="live" src="{{liveURL}}"></iframe>
       </section>
 

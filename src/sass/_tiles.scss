@@ -221,12 +221,9 @@ article.teaser {}
       display: block;
       float: left;
       height: auto;
-      margin-bottom: 0;
-      margin-left: -25%;
-      margin-right: 0;
-      margin-top: -10%;
+      margin: 0;
       min-height: 100%;
-      width: 150%;
+      width: 100%;
 
       @include breakpoint($medium-min) {
         transition: opacity 0.3s;
@@ -248,10 +245,13 @@ article.teaser {}
 
 .full .tile.thumbnail {
 
-  img {
+  a[rel="enlarge"] {
 
-    @include breakpoint($medium-min) {
-      opacity: 0.7;
+    img {
+
+      @include breakpoint($medium-min) {
+        opacity: 0.9;
+      }
     }
   }
 }
@@ -340,6 +340,7 @@ article.teaser:hover {
 
   .tile.portfolio {
     .front {
+      background-color: hsl($hue, $sat, 20%);
       // transform: perspective(1300px) rotateY(180deg);
 
       .section {
@@ -356,6 +357,7 @@ article.teaser:hover {
     }
 
     .back {
+      background-color: hsl($hue, $sat, 20%);
       // transform: perspective(1300px) rotateY(0);
     }
   }

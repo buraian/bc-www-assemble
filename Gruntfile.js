@@ -54,7 +54,8 @@ module.exports = function(grunt) {
         tasks: ['newer:csslint']
       },
       grunt: {
-        files: ['Gruntfile.js']
+        files: ['Gruntfile.js'],
+        tasks: ['default']
       },
       livereload: {
         options: {
@@ -398,7 +399,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.dist %>/assets/js/',
+            cwd: '<%= config.src %>/assets/js/',
             src: ['**/*.js', '!**/*.min.js'],
             dest: '<%= config.dist %>/assets/js/',
             ext: '.min.js',
@@ -573,7 +574,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('assemble'); // ~0.4.0
-  // grunt.loadNpmTasks('grunt-assemble'); // ~0.6.0
+  // grunt.loadNpmTasks('grunt-assemble'); // ~0.5.0
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compass');

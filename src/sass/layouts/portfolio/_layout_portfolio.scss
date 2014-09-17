@@ -67,6 +67,8 @@
 }
 
 .liveWrap {
+  z-index: 10;
+
   @include breakpoint($small-min $medium-max) {
     display: none;
   }
