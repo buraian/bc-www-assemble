@@ -33,8 +33,12 @@ module.exports = function(grunt) {
     config: {
       src: 'src',
       dist: 'dist',
-      bower: 'bower_components',
-      domain: 'brian-clark.com'
+      bower: 'bower_components'
+    },
+
+    url: {
+      domain: 'brian-clark.com',
+      portfolio: '//portfolio.<%= url.domain %>'
     },
 
     /**
