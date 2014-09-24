@@ -96,7 +96,7 @@
     dl {
       border-top: 1px dotted hsl($hue, $sat, 27%);
       float: left;
-      padding: 0.4em 0 1em;
+      padding: 0.4em 0 0.5em;
 
       &:first-child {
         border-top: 0;
@@ -118,6 +118,12 @@
       dd {
         color: hsl($hue, $sat, 85%);
         font-size: $base-font-size;
+        padding-bottom: .5em;
+
+        & + dd {
+          border-top: 1px dashed hsl(0, 0%, 25%);
+          padding: .5em 0;
+        }
       }
     }
   }
