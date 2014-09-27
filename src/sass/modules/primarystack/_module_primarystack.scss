@@ -53,6 +53,7 @@
   }
 
   header {
+    border-bottom: 0;
     margin: 1em 0 0.5em;
 
     a {
@@ -84,13 +85,17 @@
         font-weight: $normal;
         margin: 0 0 0.1em;
         padding: 0 0 0.2em;
+        text-align: center;
         text-transform: none;
         transition: color 0.3s;
         width: 100%;
       }
 
       div {
+        border-bottom: 4px double hsl(0, 0%, 30%);
+        border-top: 4px double hsl(0, 0%, 30%);
         float: left;
+        padding: 0.3em 0 0.4em;
         width: 100%;
       }
 
@@ -104,7 +109,7 @@
         }
 
         &.up {
-          color: hsl($hue, $sat, 70%);
+          color: hsl($hue, $sat, 60%);
         }
 
         &.down {
@@ -123,7 +128,7 @@
           color: hsl($hue, $sat, 100%);
 
           &.up {
-            color: hsl($hue, $sat, 80%);
+            color: hsl($hue, $sat, 70%);
           }
         }
       }
@@ -139,6 +144,7 @@
       letter-spacing: 0.2em;
       line-height: 1;
       padding: 0;
+      text-align: center;
       transition: 0.3s;
       white-space: nowrap;
       width: 100%;
