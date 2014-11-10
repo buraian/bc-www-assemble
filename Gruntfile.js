@@ -74,7 +74,7 @@ module.exports = function(grunt) {
       },
       imagemin: {
         files: ['<%= config.src %>/assets/images/{,**/}*.{png,jpg,gif}'],
-        tasks: ['newer:svgmin']
+        tasks: ['newer:imagemin']
       },
       svgmin: {
         files: ['<%= config.src %>/assets/images/{,**/}*.svg'],
@@ -126,21 +126,38 @@ module.exports = function(grunt) {
       },
 
       /**
-       * Site root pages.
+       * Maintenance mode.
        */
-      root: {
+      maintenance: {
         options: {
-          layout: 'mobile-stack.hbs'
+          layout: 'maintenance.hbs'
         },
         files: [
           {
             expand: true,
-            cwd: '<%= config.src %>/content/pages',
+            cwd: '<%= config.src %>/content/maintenance/',
             src: ['**/*.hbs'],
-            dest: '<%= config.dist %>/'
+            dest: '<%= config.dist %>'
           }
         ]
       },
+
+      /**
+       * Site root pages.
+       */
+      // root: {
+      //   options: {
+      //     layout: 'up.hbs'
+      //   },
+      //   files: [
+      //     {
+      //       expand: true,
+      //       cwd: '<%= config.src %>/content/pages',
+      //       src: ['**/*.hbs'],
+      //       dest: '<%= config.dist %>/'
+      //     }
+      //   ]
+      // },
 
       /**
        * "Portfolio" section.
@@ -349,7 +366,7 @@ module.exports = function(grunt) {
           fontsDir: '<%= config.dist %>/assets/fonts',
           environment: 'development',
           outputStyle: 'expanded',
-          require: ['breakpoint']
+          require: ['breakpoint', 'susy']
         }
       }
     },
