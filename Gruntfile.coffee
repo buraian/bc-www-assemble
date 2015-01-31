@@ -114,31 +114,31 @@ module.exports = (grunt) ->
         # }
 
       # Maintenance mode
-      maintenance:
-        options:
-          layout: "maintenance.hbs"
+      # maintenance:
+      #   options:
+      #     layout: "maintenance.hbs"
 
-        files: [
-          expand: true
-          cwd: "<%= config.src %>/content/maintenance/"
-          src: ["**/*.hbs"]
-          dest: "<%= config.dist %>"
-        ]
+      #   files: [
+      #     expand: true
+      #     cwd: "<%= config.src %>/content/maintenance/"
+      #     src: ["**/*.hbs"]
+      #     dest: "<%= config.dist %>"
+      #   ]
 
       # Site root pages
-      # root: {
-      #   options: {
-      #     layout: 'up.hbs'
-      #   },
-      #   files: [
-      #     {
-      #       expand: true,
-      #       cwd: '<%= config.src %>/content/pages',
-      #       src: ['**/*.hbs'],
-      #       dest: '<%= config.dist %>/'
-      #     }
-      #   ]
-      # },
+      root: {
+        options: {
+          layout: 'up.hbs'
+        },
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.src %>/content/pages',
+            src: ['**/*.hbs'],
+            dest: '<%= config.dist %>/'
+          }
+        ]
+      },
 
       # "Portfolio" section.
       portfolio:
@@ -304,6 +304,7 @@ module.exports = (grunt) ->
           environment: "development"
           outputStyle: "expanded"
           require: [
+            "compass"
             "breakpoint"
             "susy"
           ]
