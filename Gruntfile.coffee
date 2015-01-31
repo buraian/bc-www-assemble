@@ -1,0 +1,537 @@
+#
+# Generated on 2014-04-07
+# generator-assemble v0.4.11
+# https://github.com/assemble/generator-assemble
+#
+# Copyright (c) 2014 Hariadi Hinta
+# Licensed under the MIT license.
+#
+module.exports = (grunt) ->
+  "use strict"
+  require("time-grunt") grunt
+
+  # Project configuration.
+  grunt.initConfig
+
+    # Metadata
+    pkg: grunt.file.readJSON("package.json")
+    site: grunt.file.readYAML("src/data/site.yml")
+    banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " + "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n" + "<%= pkg.homepage ? \"* \" + pkg.homepage + \"\\n\" : \"\" %>" + "* Copyright (c) <%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %> <<%= pkg.author.homepage %>>" + " */\n\n"
+
+    # Aliases
+    config:
+      src: "src"
+      dist: "dist"
+      bower: "bower_components"
+
+    url:
+      domain: "brian-clark.com"
+      portfolio: "//portfolio.<%= url.domain %>"
+
+    ###
+    # Target-specific file lists and/or options go here.
+    ###
+
+    # Clean
+    clean: ["<%= config.dist %>/**/*.{html,xml}"]
+
+    # Watch
+    watch:
+      assemble:
+        files: ["<%= config.src %>/{content,data,templates}/{,**/}*.{md,hbs,yml}"]
+        tasks: ["assemble"]
+
+      compass:
+        files: ["<%= config.src %>/sass/{,**/}*.scss"]
+        tasks: [
+          "compass"
+          "newer:autoprefixer"
+          "newer:cssmin"
+        ]
+
+      csslint:
+        files: ["<%= config.dist %>/assets/css/style.css"]
+        tasks: ["newer:csslint"]
+
+      grunt:
+        files: ["Gruntfile.coffee", "Gruntfile.js"]
+        tasks: ["default"]
+
+      livereload:
+        options:
+          livereload: "<%= connect.options.livereload %>"
+
+        files: [
+          "<%= config.dist %>/{,*/}*.html"
+          "<%= config.dist %>/assets/{,*/}*.css"
+          "<%= config.dist %>/assets/{,*/}*.js"
+          "<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}"
+        ]
+
+      imagemin:
+        files: ["<%= config.src %>/assets/images/{,**/}*.{png,jpg,gif}"]
+        tasks: ["newer:imagemin"]
+
+      svgmin:
+        files: ["<%= config.src %>/assets/images/{,**/}*.svg"]
+        tasks: ["newer:svgmin"]
+
+      uglify:
+        files: ["<%= config.src %>/assets/js/script.js"]
+        tasks: ["newer:uglify"]
+
+    # Server
+    connect:
+      options:
+        port: 9000
+        livereload: 35729
+
+        # change this to '0.0.0.0' to access the server from outside
+        hostname: "0.0.0.0"
+
+      livereload:
+        options:
+          open: true
+          base: ["<%= config.dist %>"]
+
+    # Assemble
+    assemble:
+      options:
+        assets: "<%= config.dist %>/assets"
+        data: "<%= config.src %>/data/*.{json,yml}"
+        flatten: true
+        helpers: [
+          "helper-moment"
+          "helper-prettify"
+        ]
+        layout: "default.hbs"
+        layoutdir: "<%= config.src %>/templates/layouts/"
+        partials: "<%= config.src %>/templates/partials/**/*.hbs"
+        # prettify: {
+        #   indent: 2,
+        #   condense: true,
+        #   padcomments: true
+        # }
+
+      # Maintenance mode
+      maintenance:
+        options:
+          layout: "maintenance.hbs"
+
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/content/maintenance/"
+          src: ["**/*.hbs"]
+          dest: "<%= config.dist %>"
+        ]
+
+      # Site root pages
+      # root: {
+      #   options: {
+      #     layout: 'up.hbs'
+      #   },
+      #   files: [
+      #     {
+      #       expand: true,
+      #       cwd: '<%= config.src %>/content/pages',
+      #       src: ['**/*.hbs'],
+      #       dest: '<%= config.dist %>/'
+      #     }
+      #   ]
+      # },
+
+      # "Portfolio" section.
+      portfolio:
+        options:
+          layout: "portfolio-article.hbs"
+
+        files: [{
+          expand: true
+          cwd: "<%= config.src %>/content/pages"
+          src: ["portfolio.hbs"]
+          dest: "<%= config.dist %>/"
+        }
+        {
+          expand: true
+          cwd: "<%= config.src %>/content/pages/portfolio"
+          src: ["*.hbs"]
+          dest: "<%= config.dist %>/portfolio/"
+          ext: ".html"
+        }]
+
+    # Copy
+    copy:
+
+      # Bower Components to 'src'
+      foundation_scss:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/foundation/scss/foundation"
+          src: "**/*"
+          dest: "<%= config.src %>/sass/vendor/foundation/"
+        }]
+
+      # Bower Components to 'dist'
+      fastclick:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/fastclick/lib"
+          src: "**/*.js"
+          dest: "<%= config.dist %>/assets/js/vendor/fastclick/"
+        }]
+
+      ionicons:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/ionicons/fonts"
+          src: "**/*.{eot,svg,ttf,woff}"
+          dest: "<%= config.dist %>/assets/fonts/"
+        }]
+
+      isotope:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/isotope/dist"
+          src: "isotope.pkgd.min.js"
+          dest: "<%= config.dist %>/assets/js/vendor/isotope/"
+        }]
+
+      jquery:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/jquery/dist"
+          src: "**/*.js"
+          dest: "<%= config.dist %>/assets/js/vendor/jquery/"
+        }]
+
+      jquerybbq:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/jquery.bbq"
+          src: "jquery.ba-bbq.min.js"
+          dest: "<%= config.dist %>/assets/js/vendor/jquery.bbq/"
+        }]
+
+      jqueryui:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/jquery.ui/ui"
+          src: "jquery.ui.core.js"
+          dest: "<%= config.dist %>/assets/js/vendor/jquery.ui/"
+        }
+        {
+          expand: true
+          cwd: "<%= config.bower %>/jquery.ui/ui"
+          src: "jquery.ui.widget.js"
+          dest: "<%= config.dist %>/assets/js/vendor/jquery.ui/"
+        }
+        {
+          expand: true
+          cwd: "<%= config.bower %>/jquery.ui/ui"
+          src: "jquery.ui.tabs.js"
+          dest: "<%= config.dist %>/assets/js/vendor/jquery.ui/"
+        }]
+
+      modernizr:
+        files: [
+          expand: true
+          cwd: "<%= config.bower %>/modernizr"
+          src: "modernizr.js"
+          dest: "<%= config.dist %>/assets/js/vendor/modernizr/"
+        ]
+
+      nivolightbox:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/nivo-lightbox"
+          src: "*.js"
+          dest: "<%= config.dist %>/assets/js/vendor/nivo-lightbox/"
+        }
+        {
+          expand: true
+          cwd: "<%= config.bower %>/nivo-lightbox"
+          src: "*.css"
+          dest: "<%= config.dist %>/assets/css/vendor/nivo-lightbox/"
+        }
+        {
+          expand: true
+          cwd: "<%= config.bower %>/nivo-lightbox"
+          src: "themes/**"
+          dest: "<%= config.dist %>/assets/css/vendor/nivo-lightbox/"
+        }]
+
+      normalizecss:
+        files: [
+          expand: true
+          cwd: "<%= config.bower %>/normalize-css"
+          src: "normalize.css"
+          dest: "<%= config.dist %>/assets/css/vendor/normalize/"
+        ]
+
+      perfectscrollbar:
+        files: [{
+          expand: true
+          cwd: "<%= config.bower %>/perfect-scrollbar/min"
+          src: "perfect-scrollbar-0.4.10.min.css"
+          dest: "<%= config.dist %>/assets/css/vendor/perfect-scrollbar/"
+        }
+        {
+          expand: true
+          cwd: "<%= config.bower %>/perfect-scrollbar/min"
+          src: "perfect-scrollbar-0.4.10.with-mousewheel.min.js"
+          dest: "<%= config.dist %>/assets/js/vendor/perfect-scrollbar/"
+        }]
+
+      # Favicons (src to dist)
+      favicons:
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/files/favicons"
+          src: "*"
+          dest: "<%= config.dist %>/"
+        ]
+
+    # Compass
+    compass:
+      dist:
+        options:
+          sassDir: "<%= config.src %>/sass"
+          cssDir: "<%= config.dist %>/assets/css"
+          imagesDir: "<%= config.dist %>/assets/images"
+          generatedImagesDir: "<%= config.dist %>/assets/images/generated"
+          javascriptsDir: "<%= config.dist %>/assets/js"
+          fontsDir: "<%= config.dist %>/assets/fonts"
+          environment: "development"
+          outputStyle: "expanded"
+          require: [
+            "breakpoint"
+            "susy"
+          ]
+
+    # Autoprefixer
+    autoprefixer:
+      options:
+        browsers: [
+          "Explorer >= 7"
+          "Android >= 2"
+          "iOS >= 5"
+          "Firefox >= 4"
+          "> 1%"
+        ]
+
+      dist:
+        src: ["<%= config.dist %>/assets/css/style.css"]
+
+    # Lint author compiled CSS
+    csslint:
+      options:
+        csslintrc: ".csslintrc"
+
+      src: ["<%= config.dist %>/assets/css/style.css"]
+
+    # Minify all CSS files
+    cssmin:
+      dist_compressed:
+        files: [
+          expand: true
+          cwd: "<%= config.dist %>/assets/css/"
+          src: [
+            "**/*.css"
+            "!**/*.min.css"
+          ]
+          dest: "<%= config.dist %>/assets/css/"
+          ext: ".min.css"
+          extDot: "last"
+          flatten: false
+        ]
+
+    # Uglify
+    uglify:
+      all:
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/assets/js/"
+          src: [
+            "**/*.js"
+            "!**/*.min.js"
+          ]
+          dest: "<%= config.dist %>/assets/js/"
+          ext: ".min.js"
+          extDot: "last"
+          flatten: false
+        ]
+
+    imagemin:
+      options:
+        optimizationLevel: 3
+
+      dist:
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/assets/images/"
+          src: ["**/*.{png,jpg,gif}"]
+          dest: "<%= config.dist %>/assets/images/"
+        ]
+
+    svgmin:
+      options:
+        plugins: [
+          {
+            removeViewBox: true
+          }
+          {
+            removeUselessStrokeAndFill: true
+          }
+          {
+            removeEmptyAttrs: true
+          }
+        ]
+
+      dist:
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/assets/images/"
+          src: ["**/*.svg"]
+          dest: "<%= config.dist %>/assets/images/"
+          ext: ".min.svg"
+        ]
+
+    # Generate multiple images sizes
+    responsive_images:
+
+      ###
+      Process full-size images:
+      => @2x to @2x
+      => @2x to @1x
+      ###
+      pony:
+        options:
+          sizes: [
+            {
+              name: "2x"
+              width: "100%"
+            }
+            {
+              name: "1x"
+              width: "50%"
+            }
+          ]
+          separator: "@"
+
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/files/portfolio/"
+          src: ["*/2x/*.{jpg,gif,png}"]
+          dest: "<%= config.dist %>/assets/files/portfolio/full/"
+          flatten: true
+          extdot: "last"
+        ]
+
+      ###
+      => @1x to @1x
+      ###
+      johnny:
+        options:
+          sizes: [
+            name: "1x"
+            width: "100%"
+          ]
+          separator: "@"
+
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/files/portfolio/"
+          src: ["*/1x/*.{jpg,gif,png}"]
+          dest: "<%= config.dist %>/assets/files/portfolio/full/"
+          flatten: true
+          extdot: "last"
+        ]
+
+      ###
+      Process thumbnail images:
+      => @1x+ to @2x
+      ###
+      dallas:
+        options:
+          sizes: [
+            name: "2x"
+            width: 410
+            height: 410
+            aspectRatio: false
+            gravity: "North"
+          ]
+          separator: "@"
+
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/files/portfolio/"
+          src: ["*/1x/*.{jpg,gif,png}"]
+          dest: "<%= config.dist %>/assets/files/portfolio/thumbnail/"
+          flatten: true
+          extdot: "last"
+        ]
+
+      ###
+      => @2x+ to @2x
+      ###
+      cherry:
+        options:
+          sizes: [
+            name: "2x"
+            width: 410
+            height: 410
+            aspectRatio: false
+            gravity: "North"
+          ]
+          separator: "@"
+
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/files/portfolio/"
+          src: ["*/2x/*.{jpg,gif,png}"]
+          dest: "<%= config.dist %>/assets/files/portfolio/thumbnail/"
+          flatten: true
+          extdot: "last"
+        ]
+
+  # Load Plugins
+  grunt.loadNpmTasks "assemble" # ~0.4.0
+  # grunt.loadNpmTasks('grunt-assemble'); # ~0.5.0
+  grunt.loadNpmTasks "grunt-autoprefixer"
+  grunt.loadNpmTasks "grunt-contrib-clean"
+  grunt.loadNpmTasks "grunt-contrib-compass"
+  grunt.loadNpmTasks "grunt-contrib-connect"
+  grunt.loadNpmTasks "grunt-contrib-copy"
+  grunt.loadNpmTasks "grunt-contrib-csslint"
+  grunt.loadNpmTasks "grunt-contrib-cssmin"
+  grunt.loadNpmTasks "grunt-contrib-imagemin"
+  grunt.loadNpmTasks "grunt-contrib-uglify"
+  grunt.loadNpmTasks "grunt-contrib-watch"
+  grunt.loadNpmTasks "grunt-newer"
+  grunt.loadNpmTasks "grunt-responsive-images"
+  grunt.loadNpmTasks "grunt-svgmin"
+
+  grunt.registerTask "default", [
+    "server"
+  ]
+
+  grunt.registerTask "build", [
+    "clean"
+    "assemble"
+  ]
+
+  grunt.registerTask "server", [
+    "clean"
+    "assemble"
+    "newer:copy"
+    "compass"
+    "newer:autoprefixer"
+    "newer:csslint"
+    "newer:cssmin"
+    "newer:uglify"
+    "newer:imagemin"
+    "newer:svgmin"
+    # 'newer:responsive_images',
+    "connect:livereload"
+    "watch"
+  ]
