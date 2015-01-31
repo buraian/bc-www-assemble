@@ -1,0 +1,13 @@
+// Root Files Layout
+
+@import root/mixins
+@import root/extends
+@import root/functions
+
+main
+
+  +breakpoint($small-min $small-max)
+    // z-index: 10
+
+  +breakpoint($large-min)
+    padding: $gutter 0 0 $gutter

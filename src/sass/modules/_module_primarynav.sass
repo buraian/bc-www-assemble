@@ -1,0 +1,85 @@
+/**
+ * Primary Navigation
+ */
+
+@import primarynav/mixins
+@import primarynav/extends
+@import primarynav/functions
+
+.primaryNav
+  font-family: $menu-font-stack
+  font-weight: $normal
+  text-transform: uppercase
+
+  ul
+
+    &,
+    & li,
+    & li a
+      display: block
+      float: left
+      margin: 0
+      padding: 0
+      width: 100%
+
+    &
+      list-style-type: none
+
+    li
+      margin: 0.1em 0
+
+      &,
+      a
+        font-size: 15px
+        line-height: 1
+        position: relative
+        white-space: nowrap
+
+      a
+
+        &,
+        &:visited
+          color: hsl($hue, $sat, 90%)
+          padding: 0.5em 0
+          width: 100%
+
+          &:after
+            background-color: transparent
+            border: 1px solid transparent
+            bottom: 0
+            content: '\00a0'
+            height: auto
+            left: -0.5em
+            position: absolute
+            right: 0
+            top: 0
+            // transition: 0.3s ease-out
+            width: auto
+            z-index: -1
+
+        &:focus,
+        &:hover,
+        &:active
+          color: hsl($hue, $sat, 90%)
+
+          &:after
+            border-color: hsl($hue, $sat, 60%)
+
+      &.active
+
+        > a,
+        > a:visited
+          color: hsl($hue, $sat, 15%)
+          // transition: color 0.3s ease-in
+
+          &:after
+            background-color: hsl($hue, $sat, 90%)
+            border: 1px solid hsl($hue, $sat, 90%)
+
+        > a:focus,
+        > a:hover,
+        > a:active
+
+          &:after
+            background-color: hsl($hue, $sat, 90%)
+            border-color: hsl($hue, $sat, 90%)

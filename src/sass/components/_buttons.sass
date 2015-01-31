@@ -1,0 +1,28 @@
+// Buttons
+
+@import buttons/mixins
+@import buttons/extends
+@import buttons/functions
+
+a.button-1,
+button.button-1
+  border: 1px solid hsl($hue, $sat, 85%)
+  color: hsl($hue, $sat, 85%)
+  display: block
+  float: left
+  font-weight: $normal
+  margin: 0 3px 3px 0
+  padding: 3px 5px
+  text-align: center
+  text-transform: uppercase
+  width: 100%
+
+  &:hover
+    background-color: hsl($hue, $sat, 85%)
+    color: hsl($hue, $sat, 15%)
+
+  +breakpoint($small-min $small-max)
+    font-size: 11px
+
+  +breakpoint($medium-min)
+    font-size: 15px

@@ -1,0 +1,57 @@
+/**
+ * Secondary Nav
+ */
+@import secondarynav/mixins
+@import secondarynav/extends
+@import secondarynav/functions
+
+.secondaryNav
+  font-family: $menu-font-stack
+  padding: 10px 0 20px
+  font-weight: $bold
+  font-size: 14px
+
+  ul,
+  ul li,
+  ul li a
+    display: block
+    float: left
+    width: 100%
+    padding: 0
+    margin: 0
+
+  ul
+    list-style-type: none
+
+    li
+
+      &,
+      a
+        font-family: $menu-font-stack
+        color: hsl($hue, $sat, 55%)
+        font-size: 14px
+
+      a
+        padding: 10px 35px
+
+        &:hover
+          background-color: hsl($hue, $sat, 20%)
+
+        figure
+          border: 2px solid hsl($hue, $sat, 15%)
+          overflow: hidden
+          height: 30px
+          width: 50px
+          float: left
+
+          img
+            height: auto
+            width: 100%
+
+        figcaption
+          font-family: $base-font-stack
+          color: hsl($hue, $sat, 40%)
+          font-size: 12px
+
+          &:after
+            content: "\2026"
