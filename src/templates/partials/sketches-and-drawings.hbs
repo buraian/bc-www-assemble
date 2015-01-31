@@ -1,0 +1,16 @@
+---
+component: sketches-and-drawings
+---
+{{#is data.section "sketches-and-drawings"}}
+
+  <article class="teaser">
+    <header class="tile {{data.section}}">
+      <div class="front">
+        <span class="section">{{capitalizeEach data.section}}</span>
+        <h3>{{data.title}}</h3>
+        <p>{{data.description}}</p>
+      </div>
+    </header>
+  </article>
+
+{{/is}}

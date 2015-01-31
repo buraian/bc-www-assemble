@@ -5,13 +5,12 @@
 @import 'functions';
 
 main {
-  padding: 4px 0 0 4px;
 
   @include breakpoint($small-min $small-max) {
-    z-index: 10;
+    // z-index: 10;
   }
 
   @include breakpoint($large-min) {
-    padding-left: 254px;
+    padding: $gutter 0 0 $gutter;
   }
 }

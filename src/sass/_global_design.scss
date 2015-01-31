@@ -1,16 +1,18 @@
 // Global Design
 
-::-moz-selection {
-  background: hsl($hue + 120, $sat, 70%);
-  color: hsl($hue, $sat, 80%);
-  text-shadow: none;
-}
+@import 'config';
 
-::selection {
-  background: hsl($hue + 120, $sat, 70%);
-  color: hsl($hue, $sat, 80%);
-  text-shadow: none;
-}
+// ::-moz-selection {
+//   background: hsl($hue + 120, $sat, 70%);
+//   color: hsl($hue, $sat, 80%);
+//   text-shadow: none;
+// }
+//
+// ::selection {
+//   background: hsl($hue + 120, $sat, 70%);
+//   color: hsl($hue, $sat, 80%);
+//   text-shadow: none;
+// }
 
 *,
 *:before,
@@ -30,20 +32,31 @@ a[rel=enlarge] img {
   cursor: zoom-in;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: hsl($hue, $sat, 95%);
   color: hsl($hue, $sat, 15%);
   font-family: $base-font-stack;
   font-size: $base-font-size;
   font-weight: $normal;
+  height: 100%;
   line-height: $base-line-height;
   padding: 0;
 }
 
 main {
+  background-color: hsl($hue, $sat, 100%);
   float: left;
+  padding: 4px 0 0 4px;
   position: relative;
   width: 100%;
+
+  @include breakpoint($large-min) {
+    height: 100% !important;
+  }
 }
 
 article.article {

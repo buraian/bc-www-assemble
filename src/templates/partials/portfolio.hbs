@@ -1,0 +1,29 @@
+---
+component: portfolio
+---
+{{#is data.section "portfolio"}}
+
+  <article class="teaser{{#each data.tags}} {{.}}{{/each}}">
+    <header class="tile {{data.section}}">
+      <div class="front">
+        <span class="section">{{capitalizeEach data.section}}</span>
+        <span class="tag">{{data.tags}}</span>
+        <h3>{{data.title}}</h3>
+      </div>
+      <div class="back">
+        {{#if data.description}}
+          <p>{{data.description}}</p>
+        {{/if}}
+        <a class="button-1" href="{{data.section}}/{{filename}}">View &raquo;</a>
+      </div>
+    </header>
+    {{#each data.images}}
+      <figure class="tile thumbnail">
+        <a href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} rel="enlarge">
+          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.description}}">
+        </a>
+      </figure>
+    {{/each}}
+  </article>
+
+{{/is}}

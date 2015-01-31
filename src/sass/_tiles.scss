@@ -245,6 +245,11 @@ article.teaser {}
 
 .full .tile.thumbnail {
 
+  @include breakpoint($small-min $small-max) {
+    height: tile-size(3);
+    width: tile-size(3);
+  }
+
   a[rel="enlarge"] {
 
     img {

@@ -2,76 +2,18 @@
 section: home
 title: Home
 ---
-{{#withSort pages "data.date"}}
+<main id="main" class="main" role="main">
 
-  {{! About }}
-  {{#is data.section "about"}}
+  {{#withSort pages "data.date"}}
 
-    <article class="teaser">
-      <header class="tile {{data.section}}">
-        <span class="section">{{capitalizeEach data.section}}</span>
-        <h3>{{data.title}}</h3>
-        <p>{{data.description}}</p>
-      </header>
-    </article>
+    {{> portfolio }}
 
-  {{/is}}
+    {{> sketches-and-drawings }}
 
-  {{! Portfolio }}
-  {{#is data.section "portfolio"}}
+    {{> about }}
 
-    <article class="teaser{{#each data.tags}} {{.}}{{/each}}">
-      <header class="tile {{data.section}}">
-        <div class="front">
-          <span class="section">{{capitalizeEach data.section}}</span>
-          <span class="tag">{{data.tags}}</span>
-          <h3>{{data.title}}</h3>
-        </div>
-        <div class="back">
-          {{#if data.description}}
-            <p>{{data.description}}</p>
-          {{/if}}
-          <a class="button-1" href="{{relative ../../page.dest this.dest}}">View &raquo;</a>
-        </div>
-      </header>
-      {{#each data.images}}
-        <figure class="tile thumbnail">
-          {{!-- <div class="colorCodeOverlay"></div> --}}
-          <a href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} rel="enlarge">
-            <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.description}}">
-          </a>
-        </figure>
-      {{/each}}
-    </article>
+    {{> more }}
 
-  {{/is}}
+  {{/withSort}}
 
-  {{! Sketches and Drawings }}
-  {{#is data.section "sketches-and-drawings"}}
-
-    <article class="teaser">
-      <header class="tile {{data.section}}">
-        <div class="front">
-          <span class="section">{{capitalizeEach data.section}}</span>
-          <h3>{{data.title}}</h3>
-          <p>{{data.description}}</p>
-        </div>
-      </header>
-    </article>
-
-  {{/is}}
-
-  {{! More }}
-  {{#is data.section "more"}}
-
-    <article class="teaser">
-      <header class="tile {{data.section}}">
-        <span class="section">{{capitalizeEach data.section}}</span>
-        <h3>{{data.title}}</h3>
-        <p>{{data.description}}</p>
-      </header>
-    </article>
-
-  {{/is}}
-
-{{/withSort}}
+</main>

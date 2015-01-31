@@ -1,40 +1,26 @@
 ---
 component: primarystack
 ---
-<div id="primaryStack" class="primaryStack offCanvasMenu">
-  <header id="header" class="header">
-    <a href="/">
-      <h1>
-        <small class="lead-in">The Work of</small>
-        <div>
-          <span class="first">B</span><span class="up">r</span><span class="down">i</span><span class="up">a</span><span class="down">n</span>
-          <span class="first">C</span><span class="up">l</span><span class="down">a</span><span class="up">r</span><span class="down">k</span>
-        </div>
-      </h1>
-      <small class="follow-up">www.brian-clark.com</small>
-    </a>
-  </header>
+<div id="primaryStack" class="offCanvasStack primaryStack">
+
+  {{> site-header }}
+
   <nav id="primaryNav" class="primaryNav">
     <ul>
       <li>
-        <a data-filter="*">Home</a>
+        <a href="/">Home</a>
       </li>
       <li>
-        <a data-filter=".portfolio, .portfolio ~ .thumbnail">Portfolio</a>
-        <ul>
-          {{#tags}}
-            <li><a data-filter=".{{tag}} .tile">{{tag}}</a></li>
-          {{/tags}}
-        </ul>
+        <a href="/portfolio.html">Portfolio</a>
       </li>
       <li>
-        <a data-filter=".sketches-and-drawings">Sketches &amp; Drawings</a>
+        <a href="/sketches-and-drawings.html">Sketches &amp; Drawings</a>
       </li>
       <li>
-        <a data-filter=".about">About</a>
+        <a href="/about.html">About</a>
       </li>
       <li>
-        <a data-filter=".more">More</a>
+        <a href="/more.html">More</a>
       </li>
     </ul>
   </nav>

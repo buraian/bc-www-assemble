@@ -1,71 +1,22 @@
 ---
-published: false
-
-section: portfolio
+#section: portfolio
 title: Portfolio
 layout: portfolio.hbs
 ---
-{{#each pages}}
-  {{#is data.section "portfolio"}}
-    <article class="teaser{{#each data.tags}} {{.}}{{/each}}">
-      <header class="tile {{data.section}}">
-        <div class="front">
-          <span class="tag">{{data.tags}}</span>
-          <h3>{{data.title}}</h3>
-        </div>
-        <div class="back">
-          <p>{{data.overview}}</p>
-          <a class="/link/to/live/url" href="{{relative ../../page.dest this.dest}}">Link</a>
-        </div>
-      </header>
-      {{#each data.artwork}}
-        <figure class="tile thumbnail">
-          <div class="overlay"></div>
-          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.altText}}">
-        </figure>
-      {{/each}}
-      {{#each data.lowFidelityDesign}}
-        <figure class="tile thumbnail">
-          <div class="overlay"></div>
-          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.altText}}">
-        </figure>
-      {{/each}}
-      {{#each data.mediumFidelityDesign}}
-        <figure class="tile thumbnail">
-          <div class="overlay"></div>
-          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.altText}}">
-        </figure>
-      {{/each}}
-      {{#each data.highFidelityDesign}}
-        <figure class="tile thumbnail">
-          <div class="overlay"></div>
-          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.altText}}">
-        </figure>
-      {{/each}}
-      {{#each data.prototype}}
-        <figure class="tile thumbnail">
-          <div class="overlay"></div>
-          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.altText}}">
-        </figure>
-      {{/each}}
-      {{#each data.liveMobile}}
-        <figure class="tile thumbnail">
-          <div class="overlay"></div>
-          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.altText}}">
-        </figure>
-      {{/each}}
-      {{#each data.liveTablet}}
-        <figure class="tile thumbnail">
-          <div class="overlay"></div>
-          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.altText}}">
-        </figure>
-      {{/each}}
-      {{#each data.liveDesktop}}
-        <figure class="tile thumbnail">
-          <div class="overlay"></div>
-          <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.altText}}">
-        </figure>
-      {{/each}}
-    </article>
-  {{/is}}
-{{/each}}
+<nav class="filters">
+  <ul>
+    <li class="active"><a data-filter="*">All</a></li>
+    {{#tags}}
+      <li><a data-filter=".{{tag}} .tile">{{tag}}</a></li>
+    {{/tags}}
+  </ul>
+</nav>
+<main id="main" class="main" role="main">
+
+  {{#withSort pages "data.date"}}
+
+    {{> portfolio }}
+
+  {{/withSort}}
+
+</main>

@@ -1,0 +1,105 @@
+// Site Header
+
+.site-header {
+
+  margin: 1em 0 0.5em;
+
+  a {
+    display: block;
+    float: left;
+    width: 100%;
+  }
+
+  h1 {
+    color: hsl($hue, $sat, 50%);
+    display: block;
+    float: left;
+    font-size: 18px;
+    font-weight: $normal;
+    line-height: 1;
+    margin-bottom: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.3s;
+    white-space: nowrap;
+    width: 100%;
+
+    .lead-in {
+      clear: both;
+      color: hsl($hue, $sat, 50%);
+      display: block;
+      float: left;
+      font-family: $header-special-font-stack;
+      font-size: 16px;
+      font-weight: $normal;
+      margin: 0 0 0.1em;
+      padding: 0 0 0.2em;
+      text-transform: none;
+      transition: color 0.3s;
+      width: 100%;
+    }
+
+    div {
+      float: left;
+      text-shadow: 1px 1px 0 hsl($hue, $sat, 15%), 2px 2px 0 hsl($hue, $sat, 40%);
+      width: 100%;
+    }
+
+    span {
+      color: hsl($hue, $sat, 90%);
+      position: relative;
+      transition: color 0.3s;
+
+      &.first {
+
+      }
+
+      &.up {
+        color: hsl($hue, $sat, 60%);
+      }
+
+      &.down {
+        bottom: -0.1em;
+      }
+    }
+
+    &:hover {
+      color: hsl($hue, $sat, 60%);
+
+      .lead-in {
+        color: hsl($hue, $sat, 60%);
+      }
+
+      span {
+        color: hsl($hue, $sat, 100%);
+
+        &.up {
+          color: hsl($hue, $sat, 70%);
+        }
+      }
+    }
+  }
+
+  .follow-up {
+    color: hsl($hue, $sat, 40%);
+    display: block;
+    float: left;
+    font-family: $base-font-stack;
+    font-size: 10px;
+    font-weight: $normal;
+    letter-spacing: 0.2em;
+    line-height: 1;
+    padding: 0;
+    text-align: center;
+    transition: 0.3s;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  &:hover {
+
+    .follow-up {
+      color: hsl($hue, $sat, 50%);
+    }
+  }
+}

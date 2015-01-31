@@ -1,22 +1,14 @@
 ---
-published: false
-
-section: about
+#section: about
 title: About
-layout: about.hbs
+#layout: about.hbs
 ---
-{{#each pages}}
-  {{#is data.section "about"}}
-    <article class="teaser">
-      <header class="tile about">
-        <div class="front">
-          <h3>{{data.title}}</h3>
-          <p>{{data.description}}</p>
-        </div>
-        <div class="back">
-          <a class="/link/to/live/url" href="{{relative ../../page.dest this.dest}}">Link</a>
-        </div>
-      </header>
-    </article>
-  {{/is}}
-{{/each}}
+<main id="main" class="main" role="main">
+
+  {{#withSort pages "data.date"}}
+
+    {{> about }}
+
+  {{/withSort}}
+
+</main>

@@ -1,6 +1,14 @@
 ---
-published: false
-
-section: sketches-and-drawings
+#section: sketches-and-drawings
 title: Sketches & Drawings
+#layout: sketches-and-drawings.hbs
 ---
+<main id="main" class="main" role="main">
+
+  {{#withSort pages "data.date"}}
+
+    {{> sketches-and-drawings }}
+
+  {{/withSort}}
+
+</main>

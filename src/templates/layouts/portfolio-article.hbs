@@ -1,35 +1,14 @@
 ---
-layout: default.hbs
+layout: up.hbs
 ---
 <article id="article" class="article full">
-  <div id="tertiaryStack" class="portfolioStack">
-    <a class="offCanvasToggle" href="#"></a>
+  <div id="secondaryStack" class="portfolioStack">
+    {{!-- <a class="offCanvasToggle" href="#"></a> --}}
     <header>
-      <span class="section">{{page.section}}</span>
+      {{!-- <span class="section">{{page.section}}</span> --}}
       <span class="tag">{{page.tags}}</span>
       <h2>{{title}}</h2>
     </header>
-    <nav class="tabs">
-      <ul>
-        <li>
-          {{#if liveURL}}
-            <a href="#liveWrap" class="show-for-large-up">Live Preview<br><small>All systems go</small></a>
-            <a href="{{liveURL}}" class="hide-for-large-up" target="_blank">Launch<br><small>All systems go</small></a>
-          {{/if}}
-          {{#unless liveURL}}
-            <div>Live Preview<br><small>Not available</small></div>
-          {{/unless}}
-        </li>
-        <li>
-          {{#if images}}
-            <a href="#thumbnails" class="default">Screenshots<br><small>Click to enlarge</small></a>
-          {{/if}}
-          {{#unless images}}
-            <div>Screenshots<br><small>No screenshots available</small></div>
-          {{/unless}}
-        </li>
-      </ul>
-    </nav>
     <section class="description">
       <p>{{description}}</p>
     </section>
@@ -97,6 +76,27 @@ layout: default.hbs
 
   </div>
   <div class="views">
+    <nav class="tabs">
+      <ul>
+        <li>
+          {{#if liveURL}}
+            <a href="#liveWrap" class="show-for-large-up">Live Preview<br><small>All systems go</small></a>
+            <a href="{{liveURL}}" class="hide-for-large-up" target="_blank">Launch<br><small>All systems go</small></a>
+          {{/if}}
+          {{#unless liveURL}}
+            <div>Live Preview<br><small>Not available</small></div>
+          {{/unless}}
+        </li>
+        <li>
+          {{#if images}}
+            <a href="#thumbnails" class="default">Screenshots<br><small>Click to enlarge</small></a>
+          {{/if}}
+          {{#unless images}}
+            <div>Screenshots<br><small>No screenshots available</small></div>
+          {{/unless}}
+        </li>
+      </ul>
+    </nav>
 
     {{#if liveURL}}
 
@@ -111,8 +111,7 @@ layout: default.hbs
       <section id="thumbnails" class="thumbnails">
         {{#each images}}
           <figure class="tile thumbnail">
-            <div class="colorCodeOverlay"></div>
-            <a class="effectOverlay" href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} data-lightbox-gallery="0" rel="enlarge">
+            <a href="{{this.full.pathTo1x}}" title="{{this.description}}"{{#if this.full.pathTo2x}} data-lightbox-hidpi="{{this.full.pathTo2x}}"{{/if}} data-lightbox-gallery="0" rel="enlarge">
               <img src="{{this.thumbnail.pathTo2x}}" alt="{{this.description}}">
             </a>
           </figure>

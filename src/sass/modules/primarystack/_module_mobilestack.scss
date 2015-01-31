@@ -5,71 +5,34 @@
 @import 'functions';
 
 .mobileStack {
-  background-color: hsl($hue, $sat, 15%);
   float: left;
-  font-family: $header-font-stack;
-  height: 60px;
-  text-transform: uppercase;
+  // height: 60px;
   width: 100%;
 
-  @include breakpoint($large-min) {
-    display: none;
-  }
+  .site-header {
+    width: 250px;
 
-  h1 {
-    color: hsl($hue, $sat, 60%);
-    display: block;
-    float: left;
-    font-size: 18px;
-    padding: 17px 0 0;
+    h1 {
 
-    a,
-    a:visited {
-      color: hsl($hue, $sat, 60%);
+      div {
+        text-shadow: 1px 1px 0 hsl($hue, $sat, 100%), 2px 2px 0 hsl($hue, $sat, 70%);
+      }
+
+      span {
+        color: hsl($hue, $sat, 20%);
+
+        &.first {
+
+        }
+
+        &.up {
+          color: hsl($hue, $sat, 40%);
+        }
+
+        &.down {
+
+        }
+      }
     }
   }
-
-  small {
-    font-family: $header-special-font-stack;
-    font-size: 16px;
-    font-weight: $normal;
-    letter-spacing: 0;
-    text-transform: none;
-  }
-
-  span {
-    color: hsl($hue, $sat, 90%);
-    position: relative;
-    transition: color 0.3s;
-
-    &.first {
-
-    }
-
-    &.up {
-      color: hsl($hue, $sat, 70%);
-    }
-
-    &.down {
-      bottom: -0.1em;
-    }
-  }
-
-  & + small {
-    border-top: 1px solid hsl($hue, $sat, 20%);
-    color: hsl($hue, $sat, 45%);
-    display: block;
-    float: left;
-    font-family: $base-font-stack;
-    font-size: 10px;
-    font-weight: $bold;
-    letter-spacing: .5em;
-    padding: 4px 0 6px;
-    white-space: nowrap;
-    width: 100%;
-  }
-}
-
-.portfolio .mobileStack {
-  display: none;
 }

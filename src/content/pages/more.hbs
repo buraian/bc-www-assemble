@@ -1,5 +1,14 @@
 ---
-published: false
-
+#section: more
 title: More
+#layout: more.hbs
 ---
+<main id="main" class="main" role="main">
+
+  {{#withSort pages "data.date"}}
+
+    {{> more }}
+
+  {{/withSort}}
+
+</main>

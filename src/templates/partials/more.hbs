@@ -1,0 +1,14 @@
+---
+component: more
+---
+{{#is data.section "more"}}
+
+  <article class="teaser">
+    <header class="tile {{data.section}}">
+      <span class="section">{{capitalizeEach data.section}}</span>
+      <h3>{{data.title}}</h3>
+      <p>{{data.description}}</p>
+    </header>
+  </article>
+
+{{/is}}

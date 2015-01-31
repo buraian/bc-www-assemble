@@ -9,7 +9,7 @@
     /**
      * Perfect Scrollbar
      */
-    $('#primaryStack, #tertiaryStack').perfectScrollbar({
+    $('#primaryStack, #secondaryStack').perfectScrollbar({
       includePadding: true,
       suppressScrollX: true
     });
@@ -32,7 +32,7 @@
     /**
      * Isotope
      */
-    var $container = $('.home #main').isotope({
+    var $container = $('#main').isotope({
       itemSelector: '.tile',
       layoutMode: 'masonry',
       masonry: {
@@ -41,39 +41,34 @@
       }
     });
 
-    var urlHashValue = window.location.hash.replace( /^#/, '' );
+    $('[data-filter]').on( 'click', function () {
+      $(this).parents('ul').find('li').removeClass('active');
+      $(this).parent('li').addClass('active');
 
-    $container.isotope( $.deparam( urlHashValue, true ) );
-
-    $('#primaryNav').on( 'click', 'a[data-filter]', function () {
       var filterValue = $(this).attr('data-filter');
       $container.isotope({ filter: filterValue });
-    });
-
-    $('[data-filter]').each(function () {
-      $(this).attr('href', '/#' + $.param({ filter: $(this).attr('data-filter') }));
     });
 
     /**
      * Primary Nav
      */
-    $('.home .primaryNav > ul > li:first-child').addClass('active');
-
-    $('[data-filter]').each(function () {
-
-      var thisHref = $(this).attr('href').replace( /^\/#/, '' );
-      // var urlHashValue = window.location.hash.replace( /^#/, '' );
-
-      if (thisHref == urlHashValue) {
-        $(this).parents('ul').find('li').removeClass('active');
-        $(this).parent('li').addClass('active');
-      }
-
-      $(this).click(function () {
-        $(this).parents('ul').find('li').removeClass('active');
-        $(this).parent('li').toggleClass('active');
-      });
-    });
+    // $('.home .primaryNav > ul > li:first-child').addClass('active');
+    //
+    // $('[data-filter]').each(function () {
+    //
+    //   var thisHref = $(this).attr('href').replace( /^\/#/, '' );
+    //   // var urlHashValue = window.location.hash.replace( /^#/, '' );
+    //
+    //   if (thisHref == urlHashValue) {
+    //     $(this).parents('ul').find('li').removeClass('active');
+    //     $(this).parent('li').addClass('active');
+    //   }
+    //
+    //   $(this).click(function () {
+    //     $(this).parents('ul').find('li').removeClass('active');
+    //     $(this).parent('li').toggleClass('active');
+    //   });
+    // });
 
     /**
      * Tertiary Nav

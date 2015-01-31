@@ -22,7 +22,7 @@ a.offCanvasToggle {
     height: auto;
     left: 0;
     line-height: 1;
-    padding-top: 4px;
+    padding-top: $gutter;
     position: absolute;
     right: 0;
     text-align: center;
@@ -47,14 +47,18 @@ a.offCanvasToggle {
 }
 
 .offCanvasWrap {
-  bottom: 0;
-  height: auto;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: transform .4s ease-out;
-  width: auto;
+  background-color: hsl($hue, $sat, 100%);
+  // bottom: 0;
+  // height: auto;
+  // left: 0;
+  position: relative;
+  // right: 0;
+  // top: 0;
+  // width: auto;
+
+  @include breakpoint($large-min) {
+    left: 250px;
+  }
 
   .exitOffCanvas {
     background-color: hsl($hue, $sat, 100%);
@@ -65,7 +69,8 @@ a.offCanvasToggle {
     position: fixed;
     right: 0;
     top: 0;
-    transition: 0.3s;
+    transition-duration: 0.3s;
+    transition-property: opacity;
     visibility: hidden;
     width: auto;
     z-index: 10000;
@@ -74,16 +79,64 @@ a.offCanvasToggle {
       display: none;
     }
   }
+
+  &.primaryWrap {
+    transition: .4s ease-out;
+    z-index: 1;
+
+    .exitOffCanvas {
+      // transition-delay: 0.4s;
+    }
+  }
+
+  &.secondaryWrap {
+    transition: .5s ease-out;
+    z-index: 3;
+
+    .exitOffCanvas {
+      transition-delay: 0.5s;
+    }
+  }
+
+  &.tertiaryWrap {
+    transition: .6s ease-out;
+    z-index: 5;
+
+    .exitOffCanvas {
+      transition-delay: 0.5s;
+    }
+  }
 }
 
 .offcanvasactive .offCanvasWrap {
-  //transform: translate3d(250px, 0, 0);
-  //transition: transform .5s ease-in;
-  left: 250px;
-  transition: 0.5s ease-in;
+  transform: translate3d(250px, 0, 0);
+  transition: transform .3s ease-in;
+  // left: 250px;
+  // transition: 0.3s ease-in;
 
   .exitOffCanvas {
     opacity: 0.8;
     visibility: visible;
+  }
+
+  &.primaryWrap {
+
+    .exitOffCanvas {
+
+    }
+  }
+
+  &.secondaryWrap {
+
+    .exitOffCanvas {
+
+    }
+  }
+
+  &.tertiaryWrap {
+
+    .exitOffCanvas {
+
+    }
   }
 }
