@@ -8,6 +8,8 @@
 #
 module.exports = (grunt) ->
   "use strict"
+
+  require("load-grunt-tasks") grunt
   require("time-grunt") grunt
 
   # Project configuration.
@@ -23,78 +25,13 @@ module.exports = (grunt) ->
       src: "src"
       dist: "dist"
       bower: "bower_components"
+      npm: "node_modules"
 
     url:
       domain: "brian-clark.com"
       portfolio: "//portfolio.<%= url.domain %>"
 
-    ###
     # Target-specific file lists and/or options go here.
-    ###
-
-    # Clean
-    clean: ["<%= config.dist %>/**/*.{html,xml}"]
-
-    # Watch
-    watch:
-      assemble:
-        files: ["<%= config.src %>/{content,data,templates}/{,**/}*.{md,hbs,yml}"]
-        tasks: ["assemble"]
-
-      compass:
-        files: ["<%= config.src %>/sass/{,**/}*.scss"]
-        tasks: [
-          "compass"
-          "newer:autoprefixer"
-          "newer:cssmin"
-        ]
-
-      csslint:
-        files: ["<%= config.dist %>/assets/css/style.css"]
-        tasks: ["newer:csslint"]
-
-      grunt:
-        files: ["Gruntfile.coffee", "Gruntfile.js"]
-        tasks: ["default"]
-
-      livereload:
-        options:
-          livereload: "<%= connect.options.livereload %>"
-
-        files: [
-          "<%= config.dist %>/{,*/}*.html"
-          "<%= config.dist %>/assets/{,*/}*.css"
-          "<%= config.dist %>/assets/{,*/}*.js"
-          "<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}"
-        ]
-
-      imagemin:
-        files: ["<%= config.src %>/assets/images/{,**/}*.{png,jpg,gif}"]
-        tasks: ["newer:imagemin"]
-
-      svgmin:
-        files: ["<%= config.src %>/assets/images/{,**/}*.svg"]
-        tasks: ["newer:svgmin"]
-
-      uglify:
-        files: ["<%= config.src %>/assets/js/script.js"]
-        tasks: ["newer:uglify"]
-
-    # Server
-    connect:
-      options:
-        port: 9000
-        livereload: 35729
-
-        # change this to '0.0.0.0' to access the server from outside
-        hostname: "0.0.0.0"
-
-      livereload:
-        options:
-          open: true
-          base: ["<%= config.dist %>"]
-
-    # Assemble
     assemble:
       options:
         assets: "<%= config.dist %>/assets"
@@ -112,7 +49,6 @@ module.exports = (grunt) ->
         #   condense: true,
         #   padcomments: true
         # }
-
       # Maintenance mode
       # maintenance:
       #   options:
@@ -124,192 +60,33 @@ module.exports = (grunt) ->
       #     src: ["**/*.hbs"]
       #     dest: "<%= config.dist %>"
       #   ]
-
       # Site root pages
-      root: {
-        options: {
+      root:
+        options:
           layout: 'up.hbs'
-        },
         files: [
-          {
-            expand: true,
-            cwd: '<%= config.src %>/content/pages',
-            src: ['**/*.hbs'],
-            dest: '<%= config.dist %>/'
-          }
+          expand: true
+          cwd: '<%= config.src %>/content/pages'
+          src: ['**/*.hbs']
+          dest: '<%= config.dist %>/'
         ]
-      },
-
       # "Portfolio" section.
       portfolio:
         options:
           layout: "portfolio-article.hbs"
-
-        files: [{
+        files: [
           expand: true
           cwd: "<%= config.src %>/content/pages"
           src: ["portfolio.hbs"]
           dest: "<%= config.dist %>/"
-        }
-        {
+        ,
           expand: true
           cwd: "<%= config.src %>/content/pages/portfolio"
           src: ["*.hbs"]
           dest: "<%= config.dist %>/portfolio/"
           ext: ".html"
-        }]
-
-    # Copy
-    copy:
-
-      # Bower Components to 'src'
-      foundation_scss:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/foundation/scss/foundation"
-          src: "**/*"
-          dest: "<%= config.src %>/sass/vendor/foundation/"
-        }]
-
-      # Bower Components to 'dist'
-      fastclick:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/fastclick/lib"
-          src: "**/*.js"
-          dest: "<%= config.dist %>/assets/js/vendor/fastclick/"
-        }]
-
-      ionicons:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/ionicons/fonts"
-          src: "**/*.{eot,svg,ttf,woff}"
-          dest: "<%= config.dist %>/assets/fonts/"
-        }]
-
-      isotope:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/isotope/dist"
-          src: "isotope.pkgd.min.js"
-          dest: "<%= config.dist %>/assets/js/vendor/isotope/"
-        }]
-
-      jquery:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/jquery/dist"
-          src: "**/*.js"
-          dest: "<%= config.dist %>/assets/js/vendor/jquery/"
-        }]
-
-      jquerybbq:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/jquery.bbq"
-          src: "jquery.ba-bbq.min.js"
-          dest: "<%= config.dist %>/assets/js/vendor/jquery.bbq/"
-        }]
-
-      jqueryui:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/jquery.ui/ui"
-          src: "jquery.ui.core.js"
-          dest: "<%= config.dist %>/assets/js/vendor/jquery.ui/"
-        }
-        {
-          expand: true
-          cwd: "<%= config.bower %>/jquery.ui/ui"
-          src: "jquery.ui.widget.js"
-          dest: "<%= config.dist %>/assets/js/vendor/jquery.ui/"
-        }
-        {
-          expand: true
-          cwd: "<%= config.bower %>/jquery.ui/ui"
-          src: "jquery.ui.tabs.js"
-          dest: "<%= config.dist %>/assets/js/vendor/jquery.ui/"
-        }]
-
-      modernizr:
-        files: [
-          expand: true
-          cwd: "<%= config.bower %>/modernizr"
-          src: "modernizr.js"
-          dest: "<%= config.dist %>/assets/js/vendor/modernizr/"
         ]
 
-      nivolightbox:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/nivo-lightbox"
-          src: "*.js"
-          dest: "<%= config.dist %>/assets/js/vendor/nivo-lightbox/"
-        }
-        {
-          expand: true
-          cwd: "<%= config.bower %>/nivo-lightbox"
-          src: "*.css"
-          dest: "<%= config.dist %>/assets/css/vendor/nivo-lightbox/"
-        }
-        {
-          expand: true
-          cwd: "<%= config.bower %>/nivo-lightbox"
-          src: "themes/**"
-          dest: "<%= config.dist %>/assets/css/vendor/nivo-lightbox/"
-        }]
-
-      normalizecss:
-        files: [
-          expand: true
-          cwd: "<%= config.bower %>/normalize-css"
-          src: "normalize.css"
-          dest: "<%= config.dist %>/assets/css/vendor/normalize/"
-        ]
-
-      perfectscrollbar:
-        files: [{
-          expand: true
-          cwd: "<%= config.bower %>/perfect-scrollbar/min"
-          src: "perfect-scrollbar-0.4.10.min.css"
-          dest: "<%= config.dist %>/assets/css/vendor/perfect-scrollbar/"
-        }
-        {
-          expand: true
-          cwd: "<%= config.bower %>/perfect-scrollbar/min"
-          src: "perfect-scrollbar-0.4.10.with-mousewheel.min.js"
-          dest: "<%= config.dist %>/assets/js/vendor/perfect-scrollbar/"
-        }]
-
-      # Favicons (src to dist)
-      favicons:
-        files: [
-          expand: true
-          cwd: "<%= config.src %>/files/favicons"
-          src: "*"
-          dest: "<%= config.dist %>/"
-        ]
-
-    # Compass
-    compass:
-      dist:
-        options:
-          sassDir: "<%= config.src %>/sass"
-          cssDir: "<%= config.dist %>/assets/css"
-          imagesDir: "<%= config.dist %>/assets/images"
-          generatedImagesDir: "<%= config.dist %>/assets/images/generated"
-          javascriptsDir: "<%= config.dist %>/assets/js"
-          fontsDir: "<%= config.dist %>/assets/fonts"
-          environment: "development"
-          outputStyle: "expanded"
-          require: [
-            "compass"
-            "breakpoint"
-            "susy"
-          ]
-
-    # Autoprefixer
     autoprefixer:
       options:
         browsers: [
@@ -319,18 +96,73 @@ module.exports = (grunt) ->
           "Firefox >= 4"
           "> 1%"
         ]
-
       dist:
         src: ["<%= config.dist %>/assets/css/style.css"]
 
-    # Lint author compiled CSS
-    csslint:
+    clean:
+      favicons: "<%= config.dist %>/*.{ico,png}"
+      fonts: "<%= config.dist %>/assets/fonts/**/*"
+      images: [
+        "<%= config.dist %>/assets/images/**/*"
+        "<%= config.dist %>/assets/files/portfolio/**/*"
+      ]
+      scripts: "<%= config.dist %>/assets/js/**/*"
+      styles: "<%= config.dist %>/assets/css/**/*"
+      templates: "<%= config.dist %>/**/*.{html,xml}"
+
+    concat:
       options:
-        csslintrc: ".csslintrc"
+        banner: "<%= banner %>"
+      dist:
+        src: [
+          "<%= config.bower %>/modernizr/modernizr.js"
+          "<%= config.bower %>/fastclick/lib/fastclick.js"
+          "<%= config.bower %>/jquery/dist/jquery.js"
+          "<%= config.bower %>/jquery.ui/ui/jquery.ui.core.js"
+          "<%= config.bower %>/jquery.ui/ui/jquery.ui.widget.js"
+          "<%= config.bower %>/jquery.ui/ui/jquery.ui.tabs.js"
+          "<%= config.bower %>/jquery.bbq/jquery.ba-bbq.min.js"
+          "<%= config.bower %>/isotope/dist/isotope.pkgd.js"
+          "<%= config.npm %>/perfect-scrollbar/dist/js/perfect-scrollbar.js"
+          "<%= config.bower %>/nivo-lightbox/nivo-lightbox.js"
+        ]
+        dest: "<%= config.dist %>/assets/js/script.js"
 
-      src: ["<%= config.dist %>/assets/css/style.css"]
+    connect:
+      options:
+        port: 9000
+        livereload: 35729
+        hostname: "0.0.0.0" # change this to '0.0.0.0' to access the server from outside
+      livereload:
+        options:
+          open: true
+          base: ["<%= config.dist %>"]
 
-    # Minify all CSS files
+    copy:
+      fonts:
+        # Ionicons
+        files: [
+          expand: true
+          cwd: "<%= config.bower %>/ionicons/fonts"
+          src: "**/*.{eot,svg,ttf,woff}"
+          dest: "<%= config.dist %>/assets/fonts/"
+        ]
+      favicons:
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/files/favicons"
+          src: "*"
+          dest: "<%= config.dist %>/"
+        ]
+      other:
+        # Nivo Slider Theme
+        files: [
+          expand: true
+          cwd: "<%= config.bower %>/nivo-lightbox"
+          src: "themes/**"
+          dest: "<%= config.dist %>/assets/css/vendor/nivo-lightbox/"
+        ]
+
     cssmin:
       dist_compressed:
         files: [
@@ -346,60 +178,23 @@ module.exports = (grunt) ->
           flatten: false
         ]
 
-    # Uglify
-    uglify:
-      all:
-        files: [
-          expand: true
-          cwd: "<%= config.src %>/assets/js/"
-          src: [
-            "**/*.js"
-            "!**/*.min.js"
-          ]
-          dest: "<%= config.dist %>/assets/js/"
-          ext: ".min.js"
-          extDot: "last"
-          flatten: false
-        ]
-
     imagemin:
       options:
         optimizationLevel: 3
-
       dist:
         files: [
           expand: true
           cwd: "<%= config.src %>/assets/images/"
           src: ["**/*.{png,jpg,gif}"]
           dest: "<%= config.dist %>/assets/images/"
-        ]
-
-    svgmin:
-      options:
-        plugins: [
-          {
-            removeViewBox: true
-          }
-          {
-            removeUselessStrokeAndFill: true
-          }
-          {
-            removeEmptyAttrs: true
-          }
-        ]
-
-      dist:
-        files: [
+        ,
           expand: true
-          cwd: "<%= config.src %>/assets/images/"
-          src: ["**/*.svg"]
-          dest: "<%= config.dist %>/assets/images/"
-          ext: ".min.svg"
+          cwd: "<%= config.src %>/files/portfolio/"
+          src: ["**/*.{png,jpg,gif}"]
+          dest: "<%= config.dist %>/files/portfolio/"
         ]
 
-    # Generate multiple images sizes
     responsive_images:
-
       ###
       Process full-size images:
       => @2x to @2x
@@ -408,17 +203,13 @@ module.exports = (grunt) ->
       pony:
         options:
           sizes: [
-            {
-              name: "2x"
-              width: "100%"
-            }
-            {
-              name: "1x"
-              width: "50%"
-            }
+            name: "2x"
+            width: "100%"
+          ,
+            name: "1x"
+            width: "50%"
           ]
           separator: "@"
-
         files: [
           expand: true
           cwd: "<%= config.src %>/files/portfolio/"
@@ -427,7 +218,6 @@ module.exports = (grunt) ->
           flatten: true
           extdot: "last"
         ]
-
       ###
       => @1x to @1x
       ###
@@ -438,7 +228,6 @@ module.exports = (grunt) ->
             width: "100%"
           ]
           separator: "@"
-
         files: [
           expand: true
           cwd: "<%= config.src %>/files/portfolio/"
@@ -447,7 +236,6 @@ module.exports = (grunt) ->
           flatten: true
           extdot: "last"
         ]
-
       ###
       Process thumbnail images:
       => @1x+ to @2x
@@ -462,7 +250,6 @@ module.exports = (grunt) ->
             gravity: "North"
           ]
           separator: "@"
-
         files: [
           expand: true
           cwd: "<%= config.src %>/files/portfolio/"
@@ -471,7 +258,6 @@ module.exports = (grunt) ->
           flatten: true
           extdot: "last"
         ]
-
       ###
       => @2x+ to @2x
       ###
@@ -485,7 +271,6 @@ module.exports = (grunt) ->
             gravity: "North"
           ]
           separator: "@"
-
         files: [
           expand: true
           cwd: "<%= config.src %>/files/portfolio/"
@@ -494,45 +279,117 @@ module.exports = (grunt) ->
           flatten: true
           extdot: "last"
         ]
+    sass:
+      options:
+        sourceMap: false
+        outputStyle: 'expanded'
+      global:
+        files: [
+          expand: true
+          cwd: '<%= config.src %>/sass'
+          src: ['**/*.{sass,scss}']
+          dest: '<%= config.dist %>/assets/css/'
+          ext: '.css'
+          extDot: 'last'
+        ]
+    svgmin:
+      options:
+        plugins: [
+          removeViewBox: true
+        ,
+          removeUselessStrokeAndFill: true
+        ,
+          removeEmptyAttrs: true
+        ]
+      dist:
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/assets/images/"
+          src: ["**/*.svg"]
+          dest: "<%= config.dist %>/assets/images/"
+          ext: ".min.svg"
+        ]
 
-  # Load Plugins
-  grunt.loadNpmTasks "assemble" # ~0.4.0
-  # grunt.loadNpmTasks('grunt-assemble'); # ~0.5.0
-  grunt.loadNpmTasks "grunt-autoprefixer"
-  grunt.loadNpmTasks "grunt-contrib-clean"
-  grunt.loadNpmTasks "grunt-contrib-compass"
-  grunt.loadNpmTasks "grunt-contrib-connect"
-  grunt.loadNpmTasks "grunt-contrib-copy"
-  grunt.loadNpmTasks "grunt-contrib-csslint"
-  grunt.loadNpmTasks "grunt-contrib-cssmin"
-  grunt.loadNpmTasks "grunt-contrib-imagemin"
-  grunt.loadNpmTasks "grunt-contrib-uglify"
-  grunt.loadNpmTasks "grunt-contrib-watch"
-  grunt.loadNpmTasks "grunt-newer"
-  grunt.loadNpmTasks "grunt-responsive-images"
-  grunt.loadNpmTasks "grunt-svgmin"
+    uglify:
+      options:
+        banner: "<%= banner %>"
+      files:
+        src: ["<%= config.dist %>/assets/js/script.js"]
+        dest: "<%= config.dist %>/assets/js/script.min.js"
 
+    watch:
+      grunt:
+        files: ["Gruntfile.coffee", "Gruntfile.js"]
+        tasks: ["default"]
+      images:
+        files: [
+          "<%= config.src %>/assets/images/**/*.{png,jpg,gif,svg}"
+          "<%= config.src %>/files/**/*.{png,jpg,gif,svg}"
+        ]
+        tasks: ["newer:images"]
+      livereload:
+        options:
+          livereload: "<%= connect.options.livereload %>"
+        files: ["<%= config.dist %>/**/*.{html,css,js,png,jpg,jpeg,gif,webp,svg}"]
+      styles:
+        files: ["<%= config.src %>/sass/**/*.{sass,scss}"]
+        tasks: ["styles"]
+      scripts:
+        files: ["<%= config.src %>/assets/js/**/*.{js,map}"]
+        tasks: ["styles"]
+      templates:
+        files: ["<%= config.src %>/{content,data,templates}/**/*.{md,hbs,yml}"]
+        tasks: ["templates"]
+
+  # Default task
   grunt.registerTask "default", [
-    "server"
+    "build"
+    "watch"
   ]
 
+  # Build task
   grunt.registerTask "build", [
     "clean"
-    "assemble"
+    "templates"
+    "styles"
+    "scripts"
+    "assets"
+    "images"
+    "connect:livereload"
   ]
 
-  grunt.registerTask "server", [
-    "clean"
-    "assemble"
-    "newer:copy"
-    "compass"
-    "newer:autoprefixer"
-    "newer:csslint"
-    "newer:cssmin"
-    "newer:uglify"
+  # Assets
+  grunt.registerTask "assets", [
+    "clean:favicons"
+    "clean:fonts"
+    "copy:favicons"
+    "copy:fonts"
+    "copy:other"
+  ]
+
+  # Images
+  grunt.registerTask "images", [
+    "newer:responsive_images"
     "newer:imagemin"
     "newer:svgmin"
-    # 'newer:responsive_images',
-    "connect:livereload"
-    "watch"
+  ]
+
+  # Scripts
+  grunt.registerTask "scripts", [
+    "clean:scripts"
+    "concat"
+    "uglify"
+  ]
+
+  # Styles
+  grunt.registerTask "styles", [
+    "clean:styles"
+    "sass"
+    "autoprefixer"
+    "cssmin"
+  ]
+
+  # Templates
+  grunt.registerTask "templates", [
+    # "assemble"
   ]

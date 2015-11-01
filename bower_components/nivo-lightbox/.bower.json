@@ -9,6 +9,7 @@
     "commit": "79bb76c8a78c2b83429829db88db7f2f5869144e"
   },
   "_source": "git://github.com/gilbitron/Nivo-Lightbox.git",
-  "_target": "*",
-  "_originalSource": "nivo-lightbox"
+  "_target": "~1.2.0",
+  "_originalSource": "nivo-lightbox",
+  "_direct": true
 }
