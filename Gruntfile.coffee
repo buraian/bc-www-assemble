@@ -63,12 +63,12 @@ module.exports = (grunt) ->
       # Site root pages
       root:
         options:
-          layout: 'up.hbs'
+          layout: "up.hbs"
         files: [
           expand: true
-          cwd: '<%= config.src %>/content/pages'
-          src: ['**/*.hbs']
-          dest: '<%= config.dist %>/'
+          cwd: "<%= config.src %>/content/pages"
+          src: ["**/*.hbs"]
+          dest: "<%= config.dist %>/"
         ]
       # "Portfolio" section.
       portfolio:
@@ -279,19 +279,21 @@ module.exports = (grunt) ->
           flatten: true
           extdot: "last"
         ]
+
     sass:
       options:
         sourceMap: false
-        outputStyle: 'expanded'
+        outputStyle: "expanded"
       global:
         files: [
           expand: true
-          cwd: '<%= config.src %>/sass'
-          src: ['**/*.{sass,scss}']
-          dest: '<%= config.dist %>/assets/css/'
-          ext: '.css'
-          extDot: 'last'
+          cwd: "<%= config.src %>/sass"
+          src: ["**/*.{sass,scss}"]
+          dest: "<%= config.dist %>/assets/css/"
+          ext: ".css"
+          extDot: "last"
         ]
+
     svgmin:
       options:
         plugins: [
@@ -340,6 +342,8 @@ module.exports = (grunt) ->
       templates:
         files: ["<%= config.src %>/{content,data,templates}/**/*.{md,hbs,yml}"]
         tasks: ["templates"]
+
+  grunt.loadNpmTasks "assemble"
 
   # Default task
   grunt.registerTask "default", [
@@ -391,5 +395,5 @@ module.exports = (grunt) ->
 
   # Templates
   grunt.registerTask "templates", [
-    # "assemble"
+    "assemble"
   ]
