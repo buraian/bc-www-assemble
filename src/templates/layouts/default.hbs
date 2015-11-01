@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-{{!-- <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> --}}
+{{!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --}}
 <!--[if lt IE 7]> <html class="{{page.data.section}} no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="{{page.data.section}} no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="{{page.data.section}} no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if IE 9]>    <html class="{{page.data.section}} no-js ie9" lang="en"> <![endif]-->
-{{!-- <!-- Consider adding an manifest.appcache: h5bp.com/d/Offline --> --}}
+{{!-- Consider adding an manifest.appcache: h5bp.com/d/Offline --}}
 <!--[if gt IE 9]><!--> <html class="{{page.data.section}} no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
   <head>
     <meta charset="UTF-8">
 
-    {{!-- <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-         More info: h5bp.com/b/378 --> --}}
+    {{!-- Use the .htaccess and remove these lines to avoid edge case issues.
+         More info: h5bp.com/b/378 --}}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <title>{{title}} | {{site.title}}</title>
@@ -34,15 +34,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <link rel="stylesheet" href="{{assets}}/css/vendor/normalize/normalize.min.css">
-    <link rel="stylesheet" href="{{assets}}/css/vendor/perfect-scrollbar/perfect-scrollbar-0.4.10.min.css">
-    <link rel="stylesheet" href="{{assets}}/css/vendor/nivo-lightbox/nivo-lightbox.min.css">
-    <link rel="stylesheet" href="{{assets}}/css/vendor/nivo-lightbox/themes/default/default.min.css">
     <link rel="stylesheet" href="{{assets}}/css/style.min.css">
 
     <script type="text/javascript" src="//use.typekit.net/xwk1vje.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    <script src="{{assets}}/js/vendor/modernizr/modernizr.min.js"></script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -56,6 +51,7 @@
 
     {{> body }}
 
+    <script src="{{assets}}/js/scripts.min.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

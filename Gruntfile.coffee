@@ -125,8 +125,9 @@ module.exports = (grunt) ->
           "<%= config.bower %>/isotope/dist/isotope.pkgd.js"
           "<%= config.npm %>/perfect-scrollbar/dist/js/perfect-scrollbar.js"
           "<%= config.bower %>/nivo-lightbox/nivo-lightbox.js"
+          "<%= config.src %>/assets/scripts/scripts.js"
         ]
-        dest: "<%= config.dist %>/assets/js/script.js"
+        dest: "<%= config.dist %>/assets/js/scripts.js"
 
     connect:
       options:
